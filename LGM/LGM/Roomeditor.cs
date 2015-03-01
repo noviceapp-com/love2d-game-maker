@@ -208,6 +208,7 @@ namespace LGM
                     i++;
                 }
             }
+            this.Text = name + " - Room Editor";
         }
     }
 }

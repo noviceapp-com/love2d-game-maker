@@ -69,6 +69,7 @@ namespace LGM
                 numericUpDown2.Value = ((Resources.Sprite)Resources.resources[id]).origin.Y;
             }
             textBox1.Text = name;
+            this.Text = name + " - Sprite Editor";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -86,15 +87,51 @@ namespace LGM
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.AddExtension = true;
             ofd.CheckFileExists = true;
+            ofd.Multiselect = true;
             ofd.Title = "Load a Frame...";
             ofd.Filter = "Portable Network Graphic|*.png|JPEG Image|*.jpg;*.jpeg|Bitmap Image|*.bmp|GIF Image|*.gif";
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Bitmap spr = new Bitmap(ofd.FileName);
-
-                if (sprites.Count > 0)
+                foreach (string fn in ofd.FileNames)
                 {
-                    if (spr.Width <= sprites[0].Width && spr.Height <= sprites[0].Height)
+                    Bitmap spr = new Bitmap(fn);
+
+                    if (sprites.Count > 0)
+                    {
+                        if (spr.Width <= sprites[0].Width && spr.Height <= sprites[0].Height)
+                        {
+                            PictureBox pb = new PictureBox();
+                            sprites.Add(spr);
+                            pboxes.Add(pb);
+                            pb.Image = spr;
+                            TabPage tbpg = new TabPage();
+                            tbpg.Text = "frame" + (tabControl1.TabPages.Count + 1).ToString();
+                            pb.Parent = tbpg;
+                            pb.Dock = DockStyle.Fill;
+                            pb.BackColor = Color.FromArgb(144, 212, 242);
+                            tbpg.Controls.Add(pb);
+                            tabControl1.TabPages.Add(tbpg);
+
+                            if (tabControl1.TabPages.Count > 1)
+                            {
+                                button2.Enabled = true;
+                            }
+
+                            btnEdit.Enabled = true;
+                            btnSave.Enabled = true;
+                            button3.Enabled = true;
+                            groupBox1.Enabled = true;
+
+                            numericUpDown1.Maximum = spr.Width;
+                            numericUpDown2.Maximum = spr.Height;
+                        }
+                        else
+                        {
+                            System.Media.SystemSounds.Hand.Play();
+                            CustomMessageBox.Show("Your sprites must be all of the same maximum size to be loaded!", "Love Game Maker", CustomMessageBox.eDialogButtons.OK, Main.error);
+                        }
+                    }
+                    else
                     {
                         PictureBox pb = new PictureBox();
                         sprites.Add(spr);
@@ -121,42 +158,8 @@ namespace LGM
                         numericUpDown1.Maximum = spr.Width;
                         numericUpDown2.Maximum = spr.Height;
                     }
-                    else
-                    {
-                        System.Media.SystemSounds.Hand.Play();
-                        CustomMessageBox.Show("Your sprites must be all of the same maximum size to be loaded!", "Love Game Maker", CustomMessageBox.eDialogButtons.OK, Main.error);
-                    }
-                }
-                else
-                {
-                    PictureBox pb = new PictureBox();
-                    sprites.Add(spr);
-                    pboxes.Add(pb);
-                    pb.Image = spr;
-                    TabPage tbpg = new TabPage();
-                    tbpg.Text = "frame" + (tabControl1.TabPages.Count + 1).ToString();
-                    pb.Parent = tbpg;
-                    pb.Dock = DockStyle.Fill;
-                    pb.BackColor = Color.FromArgb(144, 212, 242);
-                    tbpg.Controls.Add(pb);
-                    tabControl1.TabPages.Add(tbpg);
-
-                    if (tabControl1.TabPages.Count > 1)
-                    {
-                        button2.Enabled = true;
-                    }
-
-                    btnEdit.Enabled = true;
-                    btnSave.Enabled = true;
-                    button3.Enabled = true;
-                    groupBox1.Enabled = true;
-
-                    numericUpDown1.Maximum = spr.Width;
-                    numericUpDown2.Maximum = spr.Height;
                 }
             }
-
-            
         }
 
         private void btnOK_Click(object sender, EventArgs e)
