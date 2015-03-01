@@ -612,6 +612,7 @@ namespace LGM
             Resources.Object obj = (Resources.Object)Resources.resources[objedtr.id];
             objedtr.name = obj.name;
             objedtr.objspr = obj.defaultsprite;
+            Resources.resources[objedtr.id].isbeingedited = true;
             
             UpdateTreeView(resourcelist);
             resourcelistpublic = resourcelist;

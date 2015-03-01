@@ -160,14 +160,18 @@ namespace LGM
         private void button1_Click(object sender, EventArgs e)
         {
             Resources.Object obj = (Resources.Object)Resources.resources[id];
-            obj.actions.Add(new Actions.Move());
+            Actions.Types act = new Actions.Move();
+            act.eventid = eventlist.SelectedIndex;
+            obj.actions.Add(act);
             UpdateActionList();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Resources.Object obj = (Resources.Object)Resources.resources[id];
-            obj.actions.Add(new Actions.Createid());
+            Actions.Types act = new Actions.Createid();
+            act.eventid = eventlist.SelectedIndex;
+            obj.actions.Add(act);
             UpdateActionList();
         }
     }
