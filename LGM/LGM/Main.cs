@@ -14,15 +14,16 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.Web;
 
+//The mega main class, simplified with region blocks! :D
 namespace LGM
 {
     public partial class Main : Form
     {
+        #region Variable Declaration
         private int childFormNumber = 0;
         public static string projectname = null;
         public static bool issaved = true;
         public static bool ontreeview = false;
-        //public static ImageList imglist;
         TreeNode Sprites;
         TreeNode Objects;
         TreeNode Backgrounds;
@@ -35,7 +36,9 @@ namespace LGM
         public static Image error = Properties.Resources.error1;
 
         public static string generatedcode = "";
+        #endregion
 
+        #region Initialization stuff
         public Main()
         {
             //Initialize the main component
@@ -90,7 +93,9 @@ namespace LGM
             CorrectDPI();
             settings.LoadSettings();  
         }
+#endregion
 
+        #region DPI-related functions
         public static int DPIIconSize(float dx)
         {
             if (dx == 96)
@@ -149,11 +154,15 @@ namespace LGM
                 g.Dispose();
             }*/
         }
+        #endregion
 
+        #region Functions for adding resources
+
+        //These functions all add a resource type to the resource array, and then return their id.
         private int AddSprite()
         {
             //Adds a sprite to the resource list
-            if (resourcelist.GetNodeCount(true) > 0 && resourcelist.Nodes[0] != null)
+            if (resourcelist.GetNodeCount(false) > 0 && resourcelist.Nodes[0] != null)
             {
                 Resources.resources.Add(new Resources.Sprite());
                 Resources.resources[Resources.resourcecnt].name = "Sprite" + Resources.resourcetypecnt[0].ToString();
@@ -174,130 +183,152 @@ namespace LGM
             else
             {
                 Error(1);
-                return 0;
+                return 0; //Just because C# DEMANDS that every code path return a value, even though the program will never execute this line of code. :P
             }
         }
 
-        private void AddObject()
+        private int AddObject()
         {
-            //Adds a sprite to the resource list
-            if (resourcelist.GetNodeCount(true) > 1 && resourcelist.Nodes[1] != null)
+            //Adds an object to the resource list
+            if (resourcelist.GetNodeCount(false) > 1 && resourcelist.Nodes[1] != null)
             {
                 Resources.resources.Add(new Resources.Object());
                 Resources.resources[Resources.resourcecnt].name = "Object" + Resources.resourcetypecnt[1].ToString();
-                TreeNode newsprite = resourcelist.Nodes[1].Nodes.Add(Resources.resources[Resources.resourcecnt].name);
-                newsprite.Tag = Resources.resourcecnt;
+                TreeNode newobj = resourcelist.Nodes[1].Nodes.Add(Resources.resources[Resources.resourcecnt].name);
+                newobj.Tag = Resources.resourcecnt;
+                newobj.ToolTipText = Resources.resourcecnt.ToString();
+                resourcelist.ShowNodeToolTips = true;
                 resourcelist.ExpandAll();
 
                 Resources.resourcecnt++; //Increase the current resource count by one, as we've (obviously) just added a resource.
-                Resources.resourcetypecnt[1]++; //Increase the number of sprites by one.
+                Resources.resourcetypecnt[1]++; //Increase the number of objects by one.
 
                 //Signify we made a change and need to save.
                 issaved = false;
                 UpdateTitle();
+                return Resources.resourcecnt - 1;
             }
             else
             {
                 Error(1);
+                return 0; //Just because C# DEMANDS that every code path return a value, even though the program will never execute this line of code. :P
             }
         }
 
-        private void AddBackground()
+        private int AddBackground()
         {
-            //Adds a sprite to the resource list
-            if (resourcelist.GetNodeCount(true) > 2 && resourcelist.Nodes[2] != null)
+            //Adds a background to the resource list
+            if (resourcelist.GetNodeCount(false) > 2 && resourcelist.Nodes[2] != null)
             {
                 Resources.resources.Add(new Resources.Background());
                 Resources.resources[Resources.resourcecnt].name = "Background" + Resources.resourcetypecnt[2].ToString();
-                TreeNode newsprite = resourcelist.Nodes[2].Nodes.Add(Resources.resources[Resources.resourcecnt].name);
-                newsprite.Tag = Resources.resourcecnt;
+                TreeNode newbg = resourcelist.Nodes[2].Nodes.Add(Resources.resources[Resources.resourcecnt].name);
+                newbg.Tag = Resources.resourcecnt;
+                newbg.ToolTipText = Resources.resourcecnt.ToString();
+                resourcelist.ShowNodeToolTips = true;
                 resourcelist.ExpandAll();
 
                 Resources.resourcecnt++; //Increase the current resource count by one, as we've (obviously) just added a resource.
-                Resources.resourcetypecnt[2]++; //Increase the number of sprites by one.
+                Resources.resourcetypecnt[2]++; //Increase the number of backgrounds by one.
 
                 //Signify we made a change and need to save.
                 issaved = false;
                 UpdateTitle();
+                return Resources.resourcecnt - 1;
             }
             else
             {
                 Error(1);
+                return 0; //Just because C# DEMANDS that every code path return a value, even though the program will never execute this line of code. :P
             }
         }
 
-        private void AddSound()
+        private int AddSound()
         {
-            //Adds a sprite to the resource list
-            if (resourcelist.GetNodeCount(true) > 3 && resourcelist.Nodes[3] != null)
+            //Adds a sound to the resource list
+            if (resourcelist.GetNodeCount(false) > 3 && resourcelist.Nodes[3] != null)
             {
                 Resources.resources.Add(new Resources.Sound());
                 Resources.resources[Resources.resourcecnt].name = "Sound" + Resources.resourcetypecnt[3].ToString();
-                TreeNode newsprite = resourcelist.Nodes[3].Nodes.Add(Resources.resources[Resources.resourcecnt].name);
-                newsprite.Tag = Resources.resourcecnt;
+                TreeNode newsnd = resourcelist.Nodes[3].Nodes.Add(Resources.resources[Resources.resourcecnt].name);
+                newsnd.Tag = Resources.resourcecnt;
+                newsnd.ToolTipText = Resources.resourcecnt.ToString();
+                resourcelist.ShowNodeToolTips = true;
                 resourcelist.ExpandAll();
 
                 Resources.resourcecnt++; //Increase the current resource count by one, as we've (obviously) just added a resource.
-                Resources.resourcetypecnt[3]++; //Increase the number of sprites by one.
+                Resources.resourcetypecnt[3]++; //Increase the number of sounds by one.
 
                 //Signify we made a change and need to save.
                 issaved = false;
                 UpdateTitle();
+                return Resources.resourcecnt - 1;
             }
             else
             {
                 Error(1);
+                return 0; //Just because C# DEMANDS that every code path return a value, even though the program will never execute this line of code. :P
             }
         }
 
-        private void AddRoom()
+        private int AddRoom()
         {
-            //Adds a sprite to the resource list
-            if (resourcelist.GetNodeCount(true) > 4 && resourcelist.Nodes[4] != null)
+            //Adds a room to the resource list
+            if (resourcelist.GetNodeCount(false) > 4 && resourcelist.Nodes[4] != null)
             {
                 Resources.resources.Add(new Resources.Room());
                 Resources.resources[Resources.resourcecnt].name = "Room" + Resources.resourcetypecnt[4].ToString();
-                TreeNode newsprite = resourcelist.Nodes[4].Nodes.Add(Resources.resources[Resources.resourcecnt].name);
-                newsprite.Tag = Resources.resourcecnt;
+                TreeNode newrm = resourcelist.Nodes[4].Nodes.Add(Resources.resources[Resources.resourcecnt].name);
+                newrm.Tag = Resources.resourcecnt;
+                newrm.ToolTipText = Resources.resourcecnt.ToString();
+                resourcelist.ShowNodeToolTips = true;
                 resourcelist.ExpandAll();
 
                 Resources.resourcecnt++; //Increase the current resource count by one, as we've (obviously) just added a resource.
-                Resources.resourcetypecnt[4]++; //Increase the number of sprites by one.
+                Resources.resourcetypecnt[4]++; //Increase the number of rooms by one.
 
                 //Signify we made a change and need to save.
                 issaved = false;
                 UpdateTitle();
+                return Resources.resourcecnt - 1;
             }
             else
             {
                 Error(1);
+                return 0; //Just because C# DEMANDS that every code path return a value, even though the program will never execute this line of code. :P
             }
         }
 
-        private void AddScript()
+        private int AddScript()
         {
-            //Adds a sprite to the resource list
-            if (resourcelist.GetNodeCount(true) > 5 && resourcelist.Nodes[5] != null)
+            //Adds a script to the resource list
+            if (resourcelist.GetNodeCount(false) > 5 && resourcelist.Nodes[5] != null)
             {
                 Resources.resources.Add(new Resources.Script());
                 Resources.resources[Resources.resourcecnt].name = "Script" + Resources.resourcetypecnt[5].ToString();
-                TreeNode newsprite = resourcelist.Nodes[5].Nodes.Add(Resources.resources[Resources.resourcecnt].name);
-                newsprite.Tag = Resources.resourcecnt;
+                TreeNode newscrpt = resourcelist.Nodes[5].Nodes.Add(Resources.resources[Resources.resourcecnt].name);
+                newscrpt.Tag = Resources.resourcecnt;
+                newscrpt.ToolTipText = Resources.resourcecnt.ToString();
+                resourcelist.ShowNodeToolTips = true;
                 resourcelist.ExpandAll();
 
                 Resources.resourcecnt++; //Increase the current resource count by one, as we've (obviously) just added a resource.
-                Resources.resourcetypecnt[5]++; //Increase the number of sprites by one.
+                Resources.resourcetypecnt[5]++; //Increase the number of scripts by one.
 
                 //Signify we made a change and need to save.
                 issaved = false;
                 UpdateTitle();
+                return Resources.resourcecnt - 1;
             }
             else
             {
                 Error(1);
+                return 0; //Just because C# DEMANDS that every code path return a value, even though the program will never execute this line of code. :P
             }
         }
+        #endregion
 
+        #region Error Code-related functions
         public static void Error(int errorcode)
         {
             //Displays an error message including an error code, and closes the program.
@@ -315,45 +346,50 @@ namespace LGM
             issaved = true;
             Application.Exit();
         }
+        #endregion
 
+        #region Functions currently used for debugging
         private void TestGame()
         {
             //TODO: Test the game using LOVE 2D
             for(int i =0;i< Resources.resources.Count;i++)
             {
+                //Currently, the program is in a 'debug' state. So we use the following code to display debug info in the form of message boxes when the user clicks "play."
                 MessageBox.Show(Resources.resources[i].name);
             }
             //GeneratedCode.GenerateCode();
         }
-
-        private void Save(bool saveas)
+        
+        private void ShowNewForm(object sender, EventArgs e)
         {
-            if (!saveas)
-            {
-                //Save the project
-            }
-            else
-            {
-                //Save the project as something.
-            }
-            issaved = true;
+            //This function is one generated by Visual Studio when you add an "MDI Parent" form.
+            //Right now it's just for testing stuff. We'll remove it when it's un-needed. ;)
+            Form childForm = new PowerfulSample();
+            childForm.MdiParent = this;
+            childForm.Text = "Object" + childFormNumber++;
+            childForm.Show();
+            issaved = false;
             UpdateTitle();
         }
+        #endregion
 
+        #region Project Naming functions
         private string getprojectname()
         {
+            //This function gets the name of the project.
             if (projectname == null)
             {
                 return "Untitled";
             }
             else
             {
-                return "";
+                return ""; //TODO: return the actual project name.
             }
         }
 
         private void UpdateTitle()
         {
+            //This function updates the Window's title based upon the project's name.
             if (issaved)
             {
                 this.Text = getprojectname() + " - Love Game Maker";
@@ -363,29 +399,9 @@ namespace LGM
                 this.Text = getprojectname() + "* - Love Game Maker";
             }
         }
+        #endregion
 
-        private void ShowNewForm(object sender, EventArgs e)
-        {
-            Form childForm = new PowerfulSample();
-            childForm.MdiParent = this;
-            childForm.Text = "Object" + childFormNumber++;
-            childForm.Show();
-            issaved = false;
-            UpdateTitle();
-        }
-
-        private void OpenFile(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = openFileDialog.FileName;
-            }
-        }
-
-
+        #region Resource List handling
         public static void UpdateTreeView(TreeView resourcelist)
         {
             for (int k = 0; k < resourcelist.Nodes.Count; k++)
@@ -450,8 +466,8 @@ namespace LGM
         private void DeleteResource()
         {
             //Delete the selected resource.
-            
-            if (resourcelist.SelectedNode.Parent != null)
+
+            if (resourcelist.SelectedNode.Parent != null && !Resources.resources[Convert.ToInt32(resourcelist.SelectedNode.Tag)].isbeingedited)
             {
                 TreeNode parnode = resourcelist.SelectedNode.Parent;
                 TreeNode selnode = resourcelist.SelectedNode;
@@ -467,25 +483,7 @@ namespace LGM
             }
             
         }
-
-        private void Main_Closing(object sender, FormClosingEventArgs e)
-        {
-            if (!issaved)
-            {
-                System.Media.SystemSounds.Asterisk.Play();
-                DialogResult areusure = CustomMessageBox.Show("You have unsaved changes! Would you like to save your work first?", "Love Game Maker", CustomMessageBox.eDialogButtons.YesNoCancel, warning);
-                if (areusure == System.Windows.Forms.DialogResult.Cancel)
-                {
-                    //Don't close the form!
-                    e.Cancel = true;
-                }
-                else if (areusure == System.Windows.Forms.DialogResult.Yes)
-                {
-                    //Save the file before closing
-                    Save(false);
-                }
-            }
-        }
+        #endregion
 
         #region All the buttons/Menu items
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -591,6 +589,7 @@ namespace LGM
         
         private void spritebtn_Click(object sender, EventArgs e)
         {
+            //Adds a sprite to the resource list and opens it in the sprite editor
             Spriteeditor spreditr = new Spriteeditor();
             spreditr.MdiParent = this;
             spreditr.id = AddSprite();
@@ -610,10 +609,6 @@ namespace LGM
                     }
                     i++;
                 }
-            }
-            else
-            {
-                //
             }
 
             UpdateTreeView(resourcelist);
@@ -658,8 +653,11 @@ namespace LGM
         {
             Roomeditor rmeditr = new Roomeditor();
             rmeditr.MdiParent = this;
+            rmeditr.id = AddRoom();
+            rmeditr.name = Resources.resources[rmeditr.id].name;
+            rmeditr.Text = rmeditr.name;
+            Resources.resources[rmeditr.id].isbeingedited = true;
             rmeditr.Show();
-            AddRoom();
         }
 
         private void scriptbtn_Click(object sender, EventArgs e)
@@ -677,9 +675,10 @@ namespace LGM
         }
         void resourcelist_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            //Open a resource if it's double-clicked on the resource list.
             if (e.Node.Parent != null && !Resources.resources[Convert.ToInt32(e.Node.Tag)].isbeingedited)
             {
-                if (Resources.resources[Convert.ToInt32(e.Node.Tag)].GetType().ToString() == "LGM.Resources+Sprite")
+                if (Resources.resources[Convert.ToInt32(e.Node.Tag)].GetType() == typeof(Resources.Sprite))
                 {
                     Resources.resources[Convert.ToInt32(e.Node.Tag)].isbeingedited = true;
                     Spriteeditor spreditr = new Spriteeditor();
@@ -704,13 +703,66 @@ namespace LGM
 
                     spreditr.Show();
                 }
+                else if (Resources.resources[Convert.ToInt32(e.Node.Tag)].GetType() == typeof(Resources.Room))
+                {
+                    Resources.resources[Convert.ToInt32(e.Node.Tag)].isbeingedited = true;
+                    Roomeditor rmeditr = new Roomeditor();
+                    rmeditr.MdiParent = this;
+                    rmeditr.name = Resources.resources[Convert.ToInt32(e.Node.Tag)].name;
+                    rmeditr.id = Convert.ToInt32(e.Node.Tag);
+                    Resources.Room rm = (Resources.Room)Resources.resources[Convert.ToInt32(e.Node.Tag)];
+
+                    UpdateTreeView(resourcelist);
+                    resourcelistpublic = resourcelist;
+
+                    rmeditr.Show();
+                    
+                }
             }
         }
         #endregion
+
+        private void Save(bool saveas)
+        {
+            //This function saves the project
+            if (!saveas)
+            {
+                //TODO: Save the project
+            }
+            else
+            {
+                //TODO: Save the project as something.
+            }
+            issaved = true;
+            UpdateTitle();
+        }
+
+        private void Main_Closing(object sender, FormClosingEventArgs e)
+        {
+            //Stops the user from exiting the application if there are unsaved changes.
+            if (!issaved)
+            {
+                System.Media.SystemSounds.Asterisk.Play();
+                DialogResult areusure = CustomMessageBox.Show("You have unsaved changes! Would you like to save your work first?", "Love Game Maker", CustomMessageBox.eDialogButtons.YesNoCancel, warning);
+                if (areusure == System.Windows.Forms.DialogResult.Cancel)
+                {
+                    //Don't close the form!
+                    e.Cancel = true;
+                }
+                else if (areusure == System.Windows.Forms.DialogResult.Yes)
+                {
+                    //Save the file before closing
+                    Save(false);
+                }
+            }
+        }
     }
 
     public class MyToolStripSystemRenderer : ToolStripSystemRenderer
     {
+        //A custom toolstriprenderer to make the project look a little nicer.
+        //The design currently used by the project is a temporary design heavily based off of "Game Maker" by Mark Overmans.
+        //The final project will have a different design, and as such, will likely not need this function.
         public MyToolStripSystemRenderer() { }
 
         protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)

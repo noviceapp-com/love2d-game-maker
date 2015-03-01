@@ -162,7 +162,6 @@
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.openToolStripMenuItem.Size = new System.Drawing.Size(263, 30);
             this.openToolStripMenuItem.Text = "&Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFile);
             // 
             // toolStripSeparator3
             // 
@@ -517,7 +516,6 @@
             this.openbtn.Name = "openbtn";
             this.openbtn.Size = new System.Drawing.Size(28, 28);
             this.openbtn.Text = "Open";
-            this.openbtn.Click += new System.EventHandler(this.OpenFile);
             // 
             // savebtn
             // 

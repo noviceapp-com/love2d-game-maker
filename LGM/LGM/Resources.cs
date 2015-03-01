@@ -14,8 +14,6 @@ namespace LGM
         public static int[] resourcetypecnt = new int[9]; //0=Number of sprites, 1=Number of Objects, 2=Number of Backgrounds, etc.
         public static List<Types> resources = new List<Types>(); //The types of resources corrisponding to each node on the resourcelist treeview.
 
-        //public enum Types { Sprite, Object, Background, Sound, Room, Script }; //The types of resources which can be added.
-
         public static void DefineResourceArrays()
         {
             //Define all those arrays declared above
@@ -75,6 +73,9 @@ namespace LGM
 
         public class Room : Types
         {
+            public List<Point> objpos = new List<Point>();
+            public List<int> objid = new List<int>();
+
             public Room()
             {
                 //
