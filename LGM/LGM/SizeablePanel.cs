@@ -13,6 +13,7 @@ public class SizeableTreeView : Panel
         this.DoubleBuffered = true;
         this.SetStyle(ControlStyles.ResizeRedraw, true);
         this.BackColor = Color.White;
+        this.Cursor = Cursors.SizeWE;
     }
 
     protected override void OnPaint(PaintEventArgs e)
@@ -45,21 +46,6 @@ public class SizeableTreeView : Panel
             this.Size = new Size(this.Width + e.X - mDragPos.X,
             this.Height + e.Y - mDragPos.Y);
             mDragPos = e.Location;
-        }
-        else if (IsOnGrip(e.Location))
-        {
-            if (!LGM.Main.ontreeview)
-            {
-                this.Cursor = Cursors.SizeWE;
-            }
-            else
-            {
-                this.Cursor = Cursors.Default;
-            }
-        }
-        else
-        {
-            this.Cursor = Cursors.Default;
         }
 
         if (IsOnGrip(e.Location))

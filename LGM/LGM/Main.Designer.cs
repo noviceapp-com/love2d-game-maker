@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Sprites");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Objects");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Backgrounds");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Sounds");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Rooms");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Scripts");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Sprites");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Objects");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Backgrounds");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Sounds");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Rooms");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Scripts");
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +58,7 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renameResourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteResourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,7 +100,6 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.sizeableTreeView1 = new SizeableTreeView();
             this.resourcelist = new System.Windows.Forms.TreeView();
-            this.deleteResourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -310,6 +310,14 @@
             this.renameResourceToolStripMenuItem.Size = new System.Drawing.Size(264, 30);
             this.renameResourceToolStripMenuItem.Text = "Re&name Resource";
             this.renameResourceToolStripMenuItem.Click += new System.EventHandler(this.renameResourceToolStripMenuItem_Click);
+            // 
+            // deleteResourceToolStripMenuItem
+            // 
+            this.deleteResourceToolStripMenuItem.Name = "deleteResourceToolStripMenuItem";
+            this.deleteResourceToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.deleteResourceToolStripMenuItem.Size = new System.Drawing.Size(264, 30);
+            this.deleteResourceToolStripMenuItem.Text = "&Delete Resource";
+            this.deleteResourceToolStripMenuItem.Click += new System.EventHandler(this.deleteResourceToolStripMenuItem_Click);
             // 
             // viewMenu
             // 
@@ -664,6 +672,7 @@
             // 
             this.sizeableTreeView1.BackColor = System.Drawing.Color.White;
             this.sizeableTreeView1.Controls.Add(this.resourcelist);
+            this.sizeableTreeView1.Cursor = System.Windows.Forms.Cursors.SizeWE;
             this.sizeableTreeView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.sizeableTreeView1.Location = new System.Drawing.Point(0, 66);
             this.sizeableTreeView1.Name = "sizeableTreeView1";
@@ -675,38 +684,31 @@
             // 
             this.resourcelist.BackColor = System.Drawing.Color.White;
             this.resourcelist.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.resourcelist.Cursor = System.Windows.Forms.Cursors.Default;
             this.resourcelist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resourcelist.Location = new System.Drawing.Point(0, 0);
             this.resourcelist.Name = "resourcelist";
-            treeNode7.Name = "Sprites";
-            treeNode7.Text = "Sprites";
-            treeNode8.Name = "Objects";
-            treeNode8.Text = "Objects";
-            treeNode9.Name = "Backgrounds";
-            treeNode9.Text = "Backgrounds";
-            treeNode10.Name = "Sounds";
-            treeNode10.Text = "Sounds";
-            treeNode11.Name = "Rooms";
-            treeNode11.Text = "Rooms";
-            treeNode12.Name = "Scripts";
-            treeNode12.Text = "Scripts";
+            treeNode1.Name = "Sprites";
+            treeNode1.Text = "Sprites";
+            treeNode2.Name = "Objects";
+            treeNode2.Text = "Objects";
+            treeNode3.Name = "Backgrounds";
+            treeNode3.Text = "Backgrounds";
+            treeNode4.Name = "Sounds";
+            treeNode4.Text = "Sounds";
+            treeNode5.Name = "Rooms";
+            treeNode5.Text = "Rooms";
+            treeNode6.Name = "Scripts";
+            treeNode6.Text = "Scripts";
             this.resourcelist.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12});
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6});
             this.resourcelist.Size = new System.Drawing.Size(286, 602);
             this.resourcelist.TabIndex = 0;
-            // 
-            // deleteResourceToolStripMenuItem
-            // 
-            this.deleteResourceToolStripMenuItem.Name = "deleteResourceToolStripMenuItem";
-            this.deleteResourceToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteResourceToolStripMenuItem.Size = new System.Drawing.Size(264, 30);
-            this.deleteResourceToolStripMenuItem.Text = "&Delete Resource";
-            this.deleteResourceToolStripMenuItem.Click += new System.EventHandler(this.deleteResourceToolStripMenuItem_Click);
             // 
             // Main
             // 

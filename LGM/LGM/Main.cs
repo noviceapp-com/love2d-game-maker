@@ -23,7 +23,6 @@ namespace LGM
         private int childFormNumber = 0;
         public static string projectname = null;
         public static bool issaved = true;
-        public static bool ontreeview = false;
         TreeNode Sprites;
         TreeNode Objects;
         TreeNode Backgrounds;
@@ -47,8 +46,6 @@ namespace LGM
             //Add Events
             this.FormClosing += Main_Closing;
             toolStrip.Renderer = new MyToolStripSystemRenderer();
-            resourcelist.MouseMove += treeView1_MouseMove;
-            resourcelist.MouseLeave += treeView1_MouseLeave;
             resourcelist.AfterLabelEdit += resourcelist_AfterLabelEdit;
             resourcelist.NodeMouseDoubleClick += resourcelist_NodeMouseDoubleClick;
             MDIClientSupport.SetBevel(this,false);
@@ -554,17 +551,6 @@ namespace LGM
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Save(false);
-        }
-        
-        void treeView1_MouseLeave(object sender, EventArgs e)
-        {
-            ontreeview = false;
-        }
-
-        void treeView1_MouseMove(object sender, MouseEventArgs e)
-        {
-            Cursor = Cursors.Default;
-            ontreeview = true;
         }
 
         private void resourceListToolStripMenuItem_Click(object sender, EventArgs e)

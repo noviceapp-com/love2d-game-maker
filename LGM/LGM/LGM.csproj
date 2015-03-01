@@ -67,6 +67,12 @@
     <Compile Include="MessageForm.Designer.cs">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Objecteditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Objecteditor.Designer.cs">
+      <DependentUpon>Objecteditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="options.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Objecteditor.resx">
+      <DependentUpon>Objecteditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="options.resx">
       <DependentUpon>options.cs</DependentUpon>
