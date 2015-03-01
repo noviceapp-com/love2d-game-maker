@@ -49,7 +49,15 @@ namespace LGM
             OKpressed = true;
             objspr = pictureBox1.Image;
             Resources.resources[id].name = textBox1.Text;
-            ((Resources.Object)Resources.resources[id]).defaultsprite = objspr;
+            Resources.Object obj = (Resources.Object)Resources.resources[id];
+            obj.events.Clear();
+
+            foreach (int i in events)
+            {
+                obj.events.Add(i);
+            }
+
+            obj.defaultsprite = objspr;
             this.Close();
         }
 
@@ -173,6 +181,26 @@ namespace LGM
             act.eventid = eventlist.SelectedIndex;
             obj.actions.Add(act);
             UpdateActionList();
+        }
+
+        private void btnaddevent_Click(object sender, EventArgs e)
+        {
+            AddEvent ae = new AddEvent();
+            ae.ShowDialog();
+
+            if (ae.eventid != -1 && !events.Contains(ae.eventid))
+            {
+                events.Add(ae.eventid);
+                eventlist.Items.Add(GetEventName(ae.eventid));
+                if (eventlist.SelectedIndex < 0)
+                {
+                    eventlist.SelectedIndex = 0;
+                }
+                else
+                {
+                    eventlist.SelectedIndex = eventlist.Items.Count-1;
+                }
+            }
         }
     }
 }

@@ -51,12 +51,6 @@ namespace LGM
             public List<int> events = new List<int>();
             public List<Actions.Types> actions = new List<Actions.Types>();
             public List<Actions.Types> bkpactions = new List<Actions.Types>();
-
-            public Object()
-            {
-                events.Add(0);
-                events.Add(1);
-            }
         }
 
         public class Background:Types
