@@ -33,6 +33,7 @@ namespace LGM
         void Roomeditor_FormClosing(object sender, FormClosingEventArgs e)
         {
             ((Resources.Room)Resources.resources[id]).isbeingedited = false;
+            Main.UpdateTreeView(Main.resourcelistpublic);
         }
 
         void PBox_MouseClick(object sender, MouseEventArgs e)

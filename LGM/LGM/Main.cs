@@ -605,7 +605,18 @@ namespace LGM
         
         private void objectbtn_Click(object sender, EventArgs e)
         {
-            AddObject();
+            Objecteditor objedtr = new Objecteditor();
+            objedtr.id = AddObject();
+            objedtr.MdiParent = this;
+            
+            Resources.Object obj = (Resources.Object)Resources.resources[objedtr.id];
+            objedtr.name = obj.name;
+            objedtr.objspr = obj.defaultsprite;
+            
+            UpdateTreeView(resourcelist);
+            resourcelistpublic = resourcelist;
+            
+            objedtr.Show();
         }
         
         private void editGeneratedCodeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -643,6 +654,10 @@ namespace LGM
             rmeditr.name = Resources.resources[rmeditr.id].name;
             rmeditr.Text = rmeditr.name;
             Resources.resources[rmeditr.id].isbeingedited = true;
+
+            UpdateTreeView(resourcelist);
+            resourcelistpublic = resourcelist;
+
             rmeditr.Show();
         }
 
@@ -689,6 +704,22 @@ namespace LGM
 
                     spreditr.Show();
                 }
+                else if (Resources.resources[Convert.ToInt32(e.Node.Tag)].GetType() == typeof(Resources.Object))
+                {
+                    Resources.resources[Convert.ToInt32(e.Node.Tag)].isbeingedited = true;
+                    Objecteditor objeditr = new Objecteditor();
+                    objeditr.MdiParent = this;
+                    objeditr.name = Resources.resources[Convert.ToInt32(e.Node.Tag)].name;
+                    objeditr.id = Convert.ToInt32(e.Node.Tag);
+                    Resources.Object obj = (Resources.Object)Resources.resources[Convert.ToInt32(e.Node.Tag)];
+                    objeditr.objspr = obj.defaultsprite;
+
+                    UpdateTreeView(resourcelist);
+                    resourcelistpublic = resourcelist;
+
+                    objeditr.Show();
+
+                }
                 else if (Resources.resources[Convert.ToInt32(e.Node.Tag)].GetType() == typeof(Resources.Room))
                 {
                     Resources.resources[Convert.ToInt32(e.Node.Tag)].isbeingedited = true;
@@ -704,6 +735,7 @@ namespace LGM
                     rmeditr.Show();
                     
                 }
+
             }
         }
         #endregion
