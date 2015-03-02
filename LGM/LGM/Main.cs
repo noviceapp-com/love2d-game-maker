@@ -13,6 +13,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Web;
+using System.IO.Compression;
 
 //The mega main class, simplified with region blocks! :D
 namespace LGM
@@ -348,13 +349,30 @@ namespace LGM
         #region Functions currently used for debugging
         private void TestGame()
         {
-            //TODO: Test the game using LOVE 2D
-            for(int i =0;i< Resources.resources.Count;i++)
+            //Test the game using LOVE 2D
+            if (Directory.Exists(Application.StartupPath+"\\temp"))
             {
-                //Currently, the program is in a 'debug' state. So we use the following code to display debug info in the form of message boxes when the user clicks "play."
-                MessageBox.Show(Resources.resources[i].name);
+                try
+                {
+                    Directory.Delete(Application.StartupPath+"\\temp",true);
+                }
+                catch (Exception ex)
+                {
+                    //Error(1);
+                }
             }
-            //GeneratedCode.GenerateCode();
+            Directory.CreateDirectory(Application.StartupPath + "\\temp");
+            GeneratedCode.GenerateCode();
+
+            if (Directory.Exists(settings.love2dpath))
+            {
+                Process sevenzip = new Process();
+                sevenzip.StartInfo = new ProcessStartInfo(Application.StartupPath + "\\7z.exe", "a game.zip -r " + '"' + Application.StartupPath + "\\temp\\*" + '"');
+                sevenzip.Start();
+                sevenzip.WaitForExit();
+                File.Move(Application.StartupPath+"\\game.zip",Application.StartupPath+"\\temp\\game.love");
+                Process.Start(settings.love2dpath+"\\love.exe",'"'+Application.StartupPath+"\\temp\\game.love"+'"');
+            }
         }
         
         private void ShowNewForm(object sender, EventArgs e)
@@ -564,7 +582,7 @@ namespace LGM
 
         private void testbtn_Click(object sender, EventArgs e)
         {
-            //TODO: Open the game in Love 2D for testing.
+            //Open the game in Love 2D for testing.
             TestGame();
         }
 

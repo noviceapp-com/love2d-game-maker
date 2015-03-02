@@ -20,6 +20,8 @@ This program uses the excellent "FastColoredTextBox" example under the following
 
 The LÖVE 2D engine, which is included with this project, is under the license detailed in the license.txt file within the love2d folder.
 
+7-Zip, which is included with this project, is under the license detailed in the 7zlicense.txt file at the root of the project.
+
 The rest of this project is under the ZLIB License, which is as follows:
 
 

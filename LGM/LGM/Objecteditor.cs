@@ -170,6 +170,8 @@ namespace LGM
             Resources.Object obj = (Resources.Object)Resources.resources[id];
             Actions.Types act = new Actions.Move();
             act.eventid = eventlist.SelectedIndex;
+            ((Actions.Move)act).x = 5;
+            ((Actions.Move)act).y = 7;
             obj.actions.Add(act);
             UpdateActionList();
         }
