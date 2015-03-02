@@ -26,6 +26,7 @@ namespace LGM
         {
             public int id = 0;
             public int eventid = 0;
+            public int eventtype = 0;
             public int apptoid = 0;
         }
 

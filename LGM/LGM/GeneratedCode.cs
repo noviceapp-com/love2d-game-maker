@@ -17,6 +17,9 @@ namespace LGM
             //Generate lua code for LOVE 2D
             codelines.Clear();
 
+            codelines.Add("--File generated using Love Game Maker (https://github.com/Radfordhound/love2d-game-maker)\n"
+                    + "--It's not recommended to edit this file in Notepad (As it doesn't support " + @"\n" + " line breaks.)\n");
+
             List<Resources.Object> objs = new List<Resources.Object>();
             int i = 0;
 
@@ -27,59 +30,72 @@ namespace LGM
                     //The resource is an object.
                     Resources.Object obj = (Resources.Object)rs;
                     objs.Add(obj);
-                    List<string> objlines = new List<string>();
-                    objlines.Add("id = " + i.ToString());
 
-                    foreach (int eventid in obj.events)
+                    //Define all the event lists
+                    List<string> createlines = new List<string>();
+                    List<string> steplines = new List<string>();
+                    //List<string> curlines = new List<string>();
+
+                    List<string> objlines = new List<string>();
+                    objlines.Add(obj.name + " = {id = " + i.ToString() + ", x = 0, y = 0}\n");
+
+                    foreach (Actions.Types action in obj.actions)
                     {
-                        if (eventid == 0)
+                        if (action.eventid == 0)
                         {
-                            objlines.Add("function " + obj.name + "_Create()");
-                            foreach (Actions.Types action in obj.actions)
-                            {
-                                if (action.eventid == 0)
-                                {
-                                    //The action is part of a create event
-                                    if (action.id == 0)
-                                    {
-                                        objlines.Add("\tobjpos[id][0] = " + ((Actions.Move)action).x);
-                                        objlines.Add("\tobjpos[id][1] = " + ((Actions.Move)action).y);
-                                    }
-                                }
-                            }
+                            MessageBox.Show("Create event");
+                            createlines.Add(generateAction(action.id,action,obj));
                         }
-                        objlines.Add("end");
+                        else if (action.eventid == 1)
+                        {
+                            steplines.Add(generateAction(action.id,action,obj));
+                        }
                     }
+
+                    objlines.Add("function " + obj.name + ".create()");
+
+                    foreach (string line in createlines)
+                    {
+                        objlines.Add('\t' + line);
+                    } 
+                    objlines.Add("end\n");
+
+                    objlines.Add("function " + obj.name + ".step()");
+                    foreach (string line in steplines)
+                    {
+                        objlines.Add('\t' + line);
+                    }
+                    objlines.Add("end\n");
+
                     File.WriteAllLines(Application.StartupPath + "\\temp\\" + obj.name + ".lua", objlines);
-                    codelines.Add("require('" + obj.name+"')");
-                    codelines.Add("");
-                    codelines.Add("objpos = {}");
-                    codelines.Add("");
-                    codelines.Add("for i = 0, " + objs.Count.ToString() + " do");
-                    codelines.Add("\tobjpos[i] = {}");
-                    codelines.Add("\t");
-                    codelines.Add("\tfor j = 0, 1 do");
-                    codelines.Add("\t\tobjpos[i][j] = 0");
-                    codelines.Add("\tend");
-                    codelines.Add("end");
+                    codelines.Add("require('" + obj.name + "')");
                 }
                 i++;
             }
 
-            codelines.Add("");
-            codelines.Add("function love.load()");
+            codelines.Add("\nfunction love.load()");
+
             foreach (Resources.Object obj in objs)
             {
-                codelines.Add("\t" + obj.name + "_Create()");
+                codelines.Add("\t" + obj.name + ".create()");
             }
-            codelines.Add("end");
 
-            codelines.Add("");
-            codelines.Add("function love.draw()");
-            codelines.Add("\tlove.graphics.print(" + '"' + "X: " + '"' + " ..objpos[0][0] .." + '"' + ", Y: " + '"' + " ..objpos[0][1],0,0)");
-            codelines.Add("end");
+            codelines.Add("end\n\n"
+                            + "function love.draw()\n"
+                            + "\tlove.graphics.print(" + '"' + "X: " + '"' + " ..Object0.x .." + '"' + ", Y: " + '"' + " ..Object0.y,0,0)\n"
+                            + "end");
 
             File.WriteAllLines(Application.StartupPath + "\\temp\\main.lua",codelines);
+        }
+
+        public static string generateAction(int id,Actions.Types action,Resources.Object obj)
+        {
+            if (id == 0)
+            {
+                return (obj.name + ".x = " + ((Actions.Move)action).x + "\n\t"
+                        + obj.name + ".y = " + ((Actions.Move)action).y);
+            }
+            return "";
         }
     }
 }
