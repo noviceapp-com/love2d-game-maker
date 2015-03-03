@@ -15,7 +15,7 @@ namespace LGM
             switch (id)
             {
                 case 0:
-                    return "Move " + Resources.resources[obj.actions[actid].apptoid].name + " to (" + ((Move)obj.actions[actid]).x + "," + ((Move)obj.actions[actid]).y + ")";
+                    return "Move " + Resources.resources[objid].name + " to (" + ((Move)obj.actions[actid]).x + "," + ((Move)obj.actions[actid]).y + ")";
                 case 1:
                     return "Create instance of " + Resources.resources[((Createid)obj.actions[actid]).crtid].name + " at (" + ((Createid)obj.actions[actid]).x + "," + ((Createid)obj.actions[actid]).y + ")";
             }

@@ -20,6 +20,9 @@ namespace LGM
             codelines.Add("--File generated using Love Game Maker (https://github.com/Radfordhound/love2d-game-maker)\n"
                     + "--It's not recommended to edit this file in Notepad (As it doesn't support " + @"\n" + " line breaks.)\n");
 
+            codelines.Add("\nobjects = {}\n"
+                            + "objcount = 0\n");
+
             List<Resources.Object> objs = new List<Resources.Object>();
             int i = 0;
 
@@ -38,6 +41,8 @@ namespace LGM
 
                     List<string> objlines = new List<string>();
                     objlines.Add(obj.name + " = {id = " + i.ToString() + ", x = 0, y = 0}\n");
+                    objlines.Add("objects[objcount] = " + obj.name+'\n');
+                    objlines.Add("objcount = objcount+1");
 
                     foreach (Actions.Types action in obj.actions)
                     {
@@ -80,10 +85,15 @@ namespace LGM
                 codelines.Add("\t" + obj.name + ".create()");
             }
 
-            codelines.Add("end\n\n"
-                            + "function love.draw()\n"
-                            + "\tlove.graphics.print(" + '"' + "X: " + '"' + " ..Object0.x .." + '"' + ", Y: " + '"' + " ..Object0.y,0,0)\n"
-                            + "end");
+            codelines.Add("end\n");
+            if (objs.Count > 0)
+            {
+                codelines.Add("function love.draw()\n"
+                + "\tfor i=0," + (objs.Count-1).ToString() + " do\n"
+                + "\t\tlove.graphics.print(" + '"' + "X: " + '"' + " ..objects[i].x .." + '"' + ", Y: " + '"' + " ..objects[i].y,0,i*16)\n"
+                + "\tend\n"
+                + "end");
+            }
 
             File.WriteAllLines(Application.StartupPath + "\\temp\\main.lua",codelines);
         }
