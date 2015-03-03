@@ -169,7 +169,10 @@ namespace LGM
         {
             Resources.Object obj = (Resources.Object)Resources.resources[id];
             Actions.Types act = new Actions.Move();
+            MessageBox.Show(eventlist.SelectedIndex.ToString());
+            MessageBox.Show(events[eventlist.SelectedIndex].ToString());
             act.eventid = eventlist.SelectedIndex;
+            act.eventtype = events[eventlist.SelectedIndex];
             ((Actions.Move)act).x = 5;
             ((Actions.Move)act).y = 7;
             obj.actions.Add(act);
@@ -181,6 +184,7 @@ namespace LGM
             Resources.Object obj = (Resources.Object)Resources.resources[id];
             Actions.Types act = new Actions.Createid();
             act.eventid = eventlist.SelectedIndex;
+            act.eventtype = events[eventlist.SelectedIndex];
             obj.actions.Add(act);
             UpdateActionList();
         }

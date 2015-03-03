@@ -20,7 +20,7 @@ namespace LGM
             codelines.Add("--File generated using Love Game Maker (https://github.com/Radfordhound/love2d-game-maker)\n"
                     + "--It's not recommended to edit this file in Notepad (As it doesn't support " + @"\n" + " line breaks.)\n");
 
-            codelines.Add("\nobjects = {}\n"
+            codelines.Add("objects = {}\n"
                             + "objcount = 0\n");
 
             List<Resources.Object> objs = new List<Resources.Object>();
@@ -37,7 +37,6 @@ namespace LGM
                     //Define all the event lists
                     List<string> createlines = new List<string>();
                     List<string> steplines = new List<string>();
-                    //List<string> curlines = new List<string>();
 
                     List<string> objlines = new List<string>();
                     objlines.Add(obj.name + " = {id = " + i.ToString() + ", x = 0, y = 0}\n");
@@ -46,13 +45,14 @@ namespace LGM
 
                     foreach (Actions.Types action in obj.actions)
                     {
-                        if (action.eventid == 0)
+                        if (action.eventtype == 0)
                         {
                             MessageBox.Show("Create event");
                             createlines.Add(generateAction(action.id,action,obj));
                         }
-                        else if (action.eventid == 1)
+                        else if (action.eventtype == 1)
                         {
+                            MessageBox.Show("Step event");
                             steplines.Add(generateAction(action.id,action,obj));
                         }
                     }
@@ -78,7 +78,8 @@ namespace LGM
                 i++;
             }
 
-            codelines.Add("\nfunction love.load()");
+            codelines.Add("\nfunction love.load()\n"
+                            + "--The 'Game Start' event");
 
             foreach (Resources.Object obj in objs)
             {
@@ -86,6 +87,17 @@ namespace LGM
             }
 
             codelines.Add("end\n");
+
+            codelines.Add("\nfunction love.update()\n"
+                            + "--The 'Game Step' event");
+
+            foreach (Resources.Object obj in objs)
+            {
+                codelines.Add("\t" + obj.name + ".step()");
+            }
+
+            codelines.Add("end\n");
+
             if (objs.Count > 0)
             {
                 codelines.Add("function love.draw()\n"
@@ -102,8 +114,17 @@ namespace LGM
         {
             if (id == 0)
             {
+                //Move to position
                 return (obj.name + ".x = " + ((Actions.Move)action).x + "\n\t"
                         + obj.name + ".y = " + ((Actions.Move)action).y);
+            }
+            else if (id == 1)
+            {
+                //Create instance
+                Resources.Object othobj = (Resources.Object)Resources.resources[((Actions.Createid)action).id];
+                return ("objects[objcount+1] = " + obj.name + "\n\t"
+                        + othobj.name + ".x = " + ((Actions.Createid)action).x + "\n\t"
+                        + othobj.name + ".y = " + ((Actions.Createid)action).y);
             }
             return "";
         }
