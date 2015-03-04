@@ -153,42 +153,42 @@ Definitely! While I'm confident in my skills to pull something like this off, I 
 
 Here's a quick guide on what YOU can do to help out depending on your skills.
 
---Can you code in C#?
+##Can you code in C#?
 
 Awesome! Go ahead and fork the project's source. Then you can clone your fork and make whatever changes you please! After that you just submit merge/pull requests for whatever files you modified/added, and if I see that the changes are for the better (Which I will 80% of the time.), I'll accept your request and your code will be added to the official project! Basically, yeah. It's code. On GitHub. You know the drill. ;)
 
---Can you draw?
+##Can you draw?
 
 Fancy! You may not realize it, but projects like Love Game Maker actually heavily benefit from nice graphics!
 We currently need icons, a logo, some nice example artwork newbies can use without fear of copyright, artwork for the up-coming website, and possibly "promotional" artwork, although this may not be required as screenshots of the software should be enough in most cases. (No, the project won't cost anything. But we still need artwork that makes the program look good/professional enough if we want anyone to actually download it.) If you're good at any of these things and have the time to do it, we'd love your help! Simply draw your artwork the way you normally do and add it to the appropriate folder under the "art" folder of the project.
 
---Can you Make nice music/sound effects?
+##Can you Make nice music/sound effects?
 
 Groovy! While the need for music/sound effects for this project is more limited than certain other materials, we still need it! Mainly as resources we can include with the engine that newbie's can use without fear of copyright, as well as audio for project videos ("Promotional", if you will. Although no one's making any money off of this project, so...), and possibly certain sound effects for the application (Although this likely won't really be necessary, as the project isn't really designed to be a very "audible" application.). If you're good at any of these things and have the time to do it, we'd love your help! Simply make your music/sound effects the way you normally do and add it to the appropriate folder under the "audio" folder of the project.
 
---Are you good at writing?
+##Are you good at writing?
 
 Superb! You may be thinking to yourself "Oh, you don't need writers. You already typed this thing up by yourself.". Yes. Yes I did. But let me tell you. IT WASN'T FUN/EASY!!! We're in need of writers for lots of things, such as documentation, "promotional" text (The project is non-commercial, as in no one makes any money off it. However, we still need something to encourage new users to download it!), and basically anything like this that requires long, clever, though-out writing (Cuz' my brain can't take it! Geez! It's harder than it looks! xD). If you're good at any of these things and have the time to do so, we'd love your help! We'll post what we need written within "TXTTODO.txt" at the root of the project as well as where to put it, so if you're interested, check it out!
 
---Are you good at legal gobbly-gook?
+##Are you good at legal gobbly-gook?
 
 OH THANK GOODNESS!!! The project, of course, needs licenses detailing what you can and cannot do with it, much like anything else. The problem is, most of us are focused on making stuff, and while licenses are defintely a major part of, well, pretty much any project, it's something often over-looked as it's extremely complicated for the project creators to sort out by themselves! I, essentially, dread copyright as it means you have to have everything exactly so with no loop holes, or else you're in serious trouble. And it's really hard to make licenses! If you have any legal experience and/or can write detailed licenses with little to no loopholes (While still maintaining a license that's easy-to-read for the average Joe), I'd love your help! PLEASE get in touch with me at radfordhound@gmail.com. I'll explain the current license as well as what kind of license(s) the project (As well as it's assets.) needs in any required detail there. Thanks a bunch! :)
 
---Are you good at designing things?
+##Are you good at designing things?
 
 Great! We need that! :) One of the most important parts of any piece of software is the user-interface, as most of us know. This often makes or breaks the entire experience and can make the difference between making the user fall in love with our code, or having them curse us for all eternity. It's especially true in this project, however, as one of the most important aspects of it (As mentioned above) is that it's both extremely easy to use for new-comers/kids, but still allows for complex creations without forcing you to drag-n-drop everything with overly-cutesy graphics, all while looking fun and pleasant to the eye, and more like an adventure than a programming IDE. Yeah, I know. That's really hard to do. That's why I need you! If you have any experience with design, specifficaly software design, your help would be greatly appretciated! Simply design a user-interface that matches the requirements listed above (Is easy to use while still allowing for commplexity, etc.), make some way to easily describe/explain it, preferrably with visuals showing how it should look (Such as a powerpoint.), And email it to me at radfordhound@gmail.com. If I like your design, I'll add it to a poll of designs. Whichever design is chosen is the one that shall be used.
 
 Not so good at designing software? That's OK! We still need a website! :D If you have any experience in web design and have a nice, simple, but welcoming design for a site in your head, please e-mail it to me at radfordhound@gmail.com. I'll get back to you as soon as I can.
 
---Are you good at web development? Such as HTML/Javascript/PHP?
+##Are you good at web development? Such as HTML/Javascript/PHP?
 
 Cool! Obviously, as mentioned several times above, this project needs a website. And not just any website, a website good enough to make people actually want to download the software. It has to be simple and to-the-point without any un-needed baggage holding it down, while still supporting the features needed (Such as a well-built forum and a wiki.) and being pleasing to the eye. If you're good at web development and think you can contribute to any of these things, please get in touch with me at radfordhound@gmail.com! We'll definitely be needing your help! :)
 
---Can you beta-test software?
+##Can you beta-test software?
 
 Neat! Simply download the latest binary release version of the source within the releases tab, try it out, and submit an "issue" for anything you notice that's wrong with it! Thanks! :)
 
---Do you have anything else you can contribute?
+##Do you have anything else you can contribute?
 
 Are you a good leader? Prove your worth by helping out in any way possible, and I may just make you an administrator over the project/site/forum! Do you have something you're willing to donate for the project? (Such as money, servers, blood, etc. *Just kidding about the blood thing.*) Get in touch with me at radfordhound@gmail.com. We'd very much appreticate that! :) Are you popular? Spread the news! We need as much help as we can get! There's lots of ways you can help out even if you don't meet any of the above critera, so if you have a way of contributing to the project, by all means, go ahead!
 
