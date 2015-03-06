@@ -63,6 +63,8 @@ namespace LGM
             float dx = this.CreateGraphics().DpiX;
             resourcelist.Width = CorrectDPIvalues(198,dx);
 
+            MessageBox.Show(CorrectDPIvalues(198, dx).ToString());
+
             //Define all the Resource variables
             Resources.DefineResourceArrays();
 
