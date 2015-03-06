@@ -60,6 +60,8 @@ namespace LGM
             Rooms = this.resourcelist.Nodes[4];
             Scripts = this.resourcelist.Nodes[5];
             resourcelist.LabelEdit = true;
+            float dx = this.CreateGraphics().DpiX;
+            resourcelist.Width = CorrectDPIvalues(198,dx);
 
             //Define all the Resource variables
             Resources.DefineResourceArrays();
