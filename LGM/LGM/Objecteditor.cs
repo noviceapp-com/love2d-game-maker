@@ -26,6 +26,30 @@ namespace LGM
         {
             InitializeComponent();
             this.FormClosing += Objecteditor_FormClosing;
+
+            TabPage page = tabControl1.SelectedTab;
+            actionlist.MouseDoubleClick += actionlist_MouseDoubleClick;
+
+            var controls = page.Controls;
+
+            foreach (var ctrl in controls)
+            {
+                if (((Button)ctrl).Tag != null)
+                {
+                    ((Button)ctrl).Click += new System.EventHandler(AddAction);
+                }
+            }
+        }
+
+        private void GetAllControl(Control c, List<Control> list)
+        {
+            foreach (Control control in c.Controls)
+            {
+                list.Add(control);
+
+                if (control.GetType() == typeof(TabControl))
+                    GetAllControl(control, list);
+            }
         }
 
         void Objecteditor_FormClosing(object sender, FormClosingEventArgs e)
@@ -36,11 +60,34 @@ namespace LGM
             if (!OKpressed)
             {
                 Resources.Object obj = (Resources.Object)Resources.resources[id];
-                obj.actions.Clear();
-                foreach (Actions.Types bkpaction in obj.bkpactions)
+                obj.events[eventlist.SelectedIndex].actions.Clear();
+                foreach (Actions.Action bkpaction in obj.bkpactions)
                 {
-                    obj.actions.Add(bkpaction);
+                    obj.events[eventlist.SelectedIndex].actions.Add(bkpaction);
                 }
+            }
+        }
+
+        void actionlist_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int index = this.actionlist.IndexFromPoint(e.Location);
+            if (index != System.Windows.Forms.ListBox.NoMatches)
+            {
+                AddAction addact = new AddAction();
+                addact.actid = index;
+                addact.objid = id;
+                addact.eventid = eventlist.SelectedIndex;
+                if (addact.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    Actions.Action act = ((Resources.Object)Resources.resources[id]).events[eventlist.SelectedIndex].actions[index];
+                    //((Resources.Object)Resources.resources[id]).actions
+                    act.arguments = addact.arguments;
+                    UpdateActionList();
+                }
+            }
+            else
+            {
+                //ERROR
             }
         }
 
@@ -50,11 +97,11 @@ namespace LGM
             objspr = pictureBox1.Image;
             Resources.resources[id].name = textBox1.Text;
             Resources.Object obj = (Resources.Object)Resources.resources[id];
-            obj.events.Clear();
+            //obj.events.Clear();
 
             foreach (int i in events)
             {
-                obj.events.Add(i);
+                //obj.events.Add(i);
             }
 
             obj.defaultsprite = objspr;
@@ -89,15 +136,18 @@ namespace LGM
                 i++;
             }
 
-            foreach (int eventid in ((Resources.Object)Resources.resources[id]).events)
+            foreach (Actions.Event eventid in ((Resources.Object)Resources.resources[id]).events)
             {
-                events.Add(eventid);
-                eventlist.Items.Add(GetEventName(eventid));
+                events.Add(eventid.type);
+                eventlist.Items.Add(GetEventName(eventid.type));
             }
 
-            foreach (Actions.Types actionids in obj.actions)
+            if (obj.events.Count > 0)
             {
-                obj.bkpactions.Add(actionids);
+                foreach (Actions.Action actionids in obj.events[0].actions)
+                {
+                    obj.bkpactions.Add(actionids);
+                }
             }
 
             UpdateActionList();
@@ -130,7 +180,7 @@ namespace LGM
             }
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void eventlist_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateActionList();
         }
@@ -153,40 +203,38 @@ namespace LGM
             //Updates the list of actions
             actionlist.Items.Clear();
             Resources.Object obj = (Resources.Object)Resources.resources[id];
-            int i = 0;
 
-            foreach (Actions.Types eventid in obj.actions)
+            if (obj.events.Count > 0 && eventlist.SelectedIndex > -1 && obj.events[eventlist.SelectedIndex].actions.Count > 0)
             {
-                if (eventid.eventid == eventlist.SelectedIndex)
+                for (int i = 0; i < obj.events[eventlist.SelectedIndex].actions.Count; i++)
                 {
-                    actionlist.Items.Add(Actions.GetAcionName(eventid.id,id,i));
+                    if (obj.events[eventlist.SelectedIndex].actions[i].eventid == eventlist.SelectedIndex)
+                    {
+                        string args = "";
+
+                        foreach (Object arg in obj.events[eventlist.SelectedIndex].actions[i].arguments)
+                        {
+                            args += arg.ToString() + ",";
+                        }
+                        actionlist.Items.Add(Actions.GetAcionName(obj.events[eventlist.SelectedIndex].actions[i].type) + " (" + args.Substring(0,args.Length-1) + ")");
+                    }
                 }
-                i++;
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddAction(object sender, EventArgs e)
         {
-            Resources.Object obj = (Resources.Object)Resources.resources[id];
-            Actions.Types act = new Actions.Move();
-            MessageBox.Show(eventlist.SelectedIndex.ToString());
-            MessageBox.Show(events[eventlist.SelectedIndex].ToString());
-            act.eventid = eventlist.SelectedIndex;
-            act.eventtype = events[eventlist.SelectedIndex];
-            ((Actions.Move)act).x = 5;
-            ((Actions.Move)act).y = 7;
-            obj.actions.Add(act);
-            UpdateActionList();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Resources.Object obj = (Resources.Object)Resources.resources[id];
-            Actions.Types act = new Actions.Createid();
-            act.eventid = eventlist.SelectedIndex;
-            act.eventtype = events[eventlist.SelectedIndex];
-            obj.actions.Add(act);
-            UpdateActionList();
+            LGM.AddAction addact = new LGM.AddAction();
+            addact.actid = -1;
+            addact.type = Convert.ToInt32(((Button)sender).Tag);
+            addact.objid = id;
+            addact.eventid = eventlist.SelectedIndex;
+            if (addact.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Actions.Add(id, eventlist.SelectedIndex, events[eventlist.SelectedIndex], addact.u, addact.arguments);
+                Resources.Object obj = (Resources.Object)Resources.resources[id];
+                UpdateActionList();                
+            }
         }
 
         private void btnaddevent_Click(object sender, EventArgs e)
@@ -197,7 +245,9 @@ namespace LGM
             if (ae.eventid != -1 && !events.Contains(ae.eventid))
             {
                 events.Add(ae.eventid);
+                ((Resources.Object)Resources.resources[id]).events.Add(new Actions.Event(ae.eventid));
                 eventlist.Items.Add(GetEventName(ae.eventid));
+                MessageBox.Show(((Resources.Object)Resources.resources[id]).events[0].type.ToString());
                 if (eventlist.SelectedIndex < 0)
                 {
                     eventlist.SelectedIndex = 0;

@@ -48,9 +48,8 @@ namespace LGM
         public class Object:Types
         {
             public Image defaultsprite = null;
-            public List<int> events = new List<int>();
-            public List<Actions.Types> actions = new List<Actions.Types>();
-            public List<Actions.Types> bkpactions = new List<Actions.Types>();
+            public List<Actions.Event> events = new List<Actions.Event>();
+            public List<Actions.Action> bkpactions = new List<Actions.Action>();
         }
 
         public class Background:Types

@@ -88,6 +88,8 @@ namespace LGM
                 }
             }
 
+            Actions.LoadActions();
+
             CorrectDPI();
             settings.LoadSettings();  
         }
@@ -371,7 +373,16 @@ namespace LGM
                 sevenzip.Start();
                 sevenzip.WaitForExit();
                 File.Move(Application.StartupPath+"\\game.zip",Application.StartupPath+"\\temp\\game.love");
-                Process.Start(settings.love2dpath+"\\love.exe",'"'+Application.StartupPath+"\\temp\\game.love"+'"');
+                Process love2d = new Process();
+                love2d.StartInfo = new ProcessStartInfo(settings.love2dpath+"\\love.exe",'"'+Application.StartupPath+"\\temp\\game.love"+'"');
+                love2d.Start();
+                love2d.WaitForExit();
+
+                if (Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\LOVE\\LGMtestgame") && File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\LOVE\\LGMtestgame\\error.txt"))
+                {
+                    System.Media.SystemSounds.Hand.Play();
+                    CustomMessageBox.Show("It appears something has gone wrong with your code! Please ensure" + Environment.NewLine + "your code is correct and try again.", "Love Game Maker", CustomMessageBox.eDialogButtons.OK, error);
+                }
             }
         }
         

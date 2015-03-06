@@ -84,7 +84,8 @@ namespace LGM
                     pb.Size = new System.Drawing.Size(pb.Image.Width,pb.Image.Height);
                     pb.BackColor = System.Drawing.Color.Transparent;
                     pboxes.Add(pb);
-                    objids.Add(objids[objlist.SelectedIndex]);
+                    MessageBox.Show(objs[objlist.SelectedIndex].ToString());
+                    objids.Add(objs[objlist.SelectedIndex]);
                     pb.Tag = "false";
                     pb.MouseClick += PBox_MouseClick;
                     pb.MouseDown += PBox_MouseDown;
@@ -137,7 +138,7 @@ namespace LGM
             {
                 rm.objid.Add(objids[i]);
                 rm.objpos.Add(pb.Location);
-                //MessageBox.Show("ID: " + objids[i].ToString() + ", POS: " + pb.Location.ToString());
+                MessageBox.Show("Name: " + ((Resources.Object)Resources.resources[objids[i]]).name + " , ID: " + objids[i].ToString() + ", POS: " + pb.Location.ToString());
                 i++;
             }
             this.Close();
@@ -156,12 +157,12 @@ namespace LGM
                     if (obj.defaultsprite != null)
                     {
                         objsprs.Add(obj.defaultsprite);
-                        objids.Add(i);
+                        objs.Add(i);
                     }
                     else
                     {
                         objsprs.Add(missingimg);
-                        objids.Add(i);
+                        objs.Add(i);
                     }
                     objlist.Items.Add(obj.name);
                     objlist.SelectedIndex = 0;

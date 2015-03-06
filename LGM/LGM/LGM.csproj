@@ -54,6 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions.cs" />
+    <Compile Include="AddAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAction.Designer.cs">
+      <DependentUpon>AddAction.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddEvent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     <Compile Include="Spriteeditor.Designer.cs">
       <DependentUpon>Spriteeditor.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddAction.resx">
+      <DependentUpon>AddAction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEvent.resx">
       <DependentUpon>AddEvent.cs</DependentUpon>
     </EmbeddedResource>
