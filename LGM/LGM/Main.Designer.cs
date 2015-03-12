@@ -146,7 +146,7 @@
             // 
             // newToolStripMenuItem
             // 
-            this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
+            this.newToolStripMenuItem.Image = global::LGM.Properties.Resources.new1;
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
@@ -540,10 +540,12 @@
             this.helpbtn});
             this.toolStrip.Location = new System.Drawing.Point(0, 25);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
+            this.toolStrip.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip.Size = new System.Drawing.Size(948, 27);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
+            this.toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_ItemClicked);
             // 
             // newbtn
             // 
@@ -582,7 +584,7 @@
             // 
             this.testbtn.AutoSize = false;
             this.testbtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
-            this.testbtn.Image = global::LGM.Properties.Resources.play;
+            this.testbtn.Image = ((System.Drawing.Image)(resources.GetObject("testbtn.Image")));
             this.testbtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.testbtn.Name = "testbtn";
             this.testbtn.Size = new System.Drawing.Size(24, 24);
@@ -743,6 +745,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Main";
             this.Text = "Love Game Maker -- New Project";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -834,38 +834,26 @@ namespace LGM
                 }
             }
         }
+
+        private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 
     public class MyToolStripSystemRenderer : ToolStripSystemRenderer
     {
-        //A custom toolstriprenderer to make the project look a little nicer.
-        //The design currently used by the project is a temporary design heavily based off of "Game Maker" by Mark Overmans.
-        //The final project will have a different design, and as such, will likely not need this function.
+        /*
+         * A custom toolstriprenderer to make the project look a little nicer.
+         * The design currently used by the project is a temporary design heavily based off of "Game Maker" by Mark Overmans.
+         * The final project will have a different design, and as such, will likely not need this function.
+        */
+
         public MyToolStripSystemRenderer() { }
-
-        protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
-        {
-            Rectangle r = e.Item.ContentRectangle;
-
-            if (e.Item.Selected)
-            {
-                LinearGradientBrush b = new LinearGradientBrush(r,Color.FromArgb(255,227,224,215),Color.White,LinearGradientMode.Vertical);
-                try
-                {
-                    e.Graphics.FillRectangle(b, e.Item.ContentRectangle);
-                }
-                finally
-                {
-                    b.Dispose();
-                }
-            }
-            base.OnRenderMenuItemBackground(e);
-        }
 
         protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
         {
-            //Making this non-op removes the artifact line that is typically drawn on the bottom edge
-            base.OnRenderToolStripBorder(e);
+            //Basically, putting nothing here keeps the toolstrip from drawing a border, which is exactly what we want. :)
         }
     }
 }
