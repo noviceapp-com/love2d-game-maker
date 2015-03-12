@@ -140,6 +140,7 @@ namespace LGM
                     TabPage tbpg = new TabPage(cat.name);
                     tbpg.BackColor = Color.White;
                     tbpg.Tag = cat.id;
+                    tbpg.AutoScroll = true;
                     tbpgs.Add(tbpg);
                 }
                 

@@ -32,24 +32,12 @@ namespace LGM
 
             if (Actions.actions.Count > 0)
             {
-                for (int k = 0; k < Actions.actions.Count; k++)
+                for (int k = 0; k < Actions.actions.Count-1; k++)
                 {
-                    bool cont = true;
-
-                    foreach (Category cat in categories)
-                    {
-                        if (cat.id == GetAcionCategory(k))
-                        {
-                            cont = false;
-                            break;
-                        }
-                    }
-
-                    if (cont && Directory.Exists(Application.StartupPath + "\\actions") && File.Exists(Application.StartupPath + "\\actions\\categories.txt"))
+                    if (Directory.Exists(Application.StartupPath + "\\actions") && File.Exists(Application.StartupPath + "\\actions\\categories.txt"))
                     {
                         string[] cats = File.ReadAllLines(Application.StartupPath + "\\actions\\categories.txt");
-                        categories.Add(new Category(GetAcionCategory(k), cats[k]));
-                        //MessageBox.Show("CAT " + cats[k], "Debug Message");
+                        categories.Add(new Category(k, cats[k]));
                     };
                 }
             }
@@ -135,8 +123,8 @@ namespace LGM
 
         public class Category
         {
-            public int id = 0;
-            public string name = "";
+            public int id;
+            public string name;
 
             public Category (int id,string name)
             {
