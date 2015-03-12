@@ -47,7 +47,7 @@
             this.picImage.ErrorImage = null;
             this.picImage.InitialImage = null;
             this.picImage.Location = new System.Drawing.Point(38, 45);
-            this.picImage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.picImage.Margin = new System.Windows.Forms.Padding(6);
             this.picImage.Name = "picImage";
             this.picImage.Size = new System.Drawing.Size(48, 48);
             this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -72,8 +72,9 @@
             // btnYes
             // 
             this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnYes.Location = new System.Drawing.Point(249, 29);
-            this.btnYes.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnYes.Location = new System.Drawing.Point(249, 33);
+            this.btnYes.Margin = new System.Windows.Forms.Padding(6);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(129, 37);
             this.btnYes.TabIndex = 2;
@@ -84,8 +85,9 @@
             // btnNo
             // 
             this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNo.Location = new System.Drawing.Point(396, 29);
-            this.btnNo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnNo.Location = new System.Drawing.Point(396, 33);
+            this.btnNo.Margin = new System.Windows.Forms.Padding(6);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(129, 37);
             this.btnNo.TabIndex = 3;
@@ -96,8 +98,9 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(540, 29);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnCancel.Location = new System.Drawing.Point(540, 33);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(129, 37);
             this.btnCancel.TabIndex = 1;
@@ -108,8 +111,9 @@
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(396, 29);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnOK.Location = new System.Drawing.Point(396, 33);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(6);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(129, 37);
             this.btnOK.TabIndex = 4;
@@ -134,9 +138,9 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.btnOK);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancel);
             this.splitContainer1.Panel2.Controls.Add(this.btnYes);
+            this.splitContainer1.Panel2.Controls.Add(this.btnOK);
             this.splitContainer1.Panel2.Controls.Add(this.btnNo);
             this.splitContainer1.Size = new System.Drawing.Size(682, 205);
             this.splitContainer1.SplitterDistance = 126;
@@ -152,7 +156,7 @@
             this.ClientSize = new System.Drawing.Size(682, 205);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MessageForm";

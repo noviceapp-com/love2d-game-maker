@@ -66,6 +66,9 @@
     <Compile Include="AddEvent.Designer.cs">
       <DependentUpon>AddEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomMessageBox.cs" />
     <Compile Include="GeneratedCode.cs" />
     <Compile Include="Main.cs">
@@ -81,6 +84,7 @@
     <Compile Include="MessageForm.Designer.cs">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="Objecteditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +121,9 @@
     </Compile>
     <Compile Include="Spriteeditor.Designer.cs">
       <DependentUpon>Spriteeditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreeView.cs">
+      <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="AddAction.resx">
       <DependentUpon>AddAction.cs</DependentUpon>

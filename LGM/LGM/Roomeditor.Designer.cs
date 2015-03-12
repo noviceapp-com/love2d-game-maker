@@ -72,6 +72,7 @@
             // 
             // objlist
             // 
+            this.objlist.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.objlist.FormattingEnabled = true;
             this.objlist.Location = new System.Drawing.Point(8, 65);
             this.objlist.Name = "objlist";

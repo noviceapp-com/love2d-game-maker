@@ -24,13 +24,14 @@ namespace LGM
         private int childFormNumber = 0;
         public static string projectname = null;
         public static bool issaved = true;
+
+        public static System.Windows.Forms.TreeView resourcelistpublic;
         TreeNode Sprites;
         TreeNode Objects;
         TreeNode Backgrounds;
         TreeNode Sounds;
         TreeNode Rooms;
         TreeNode Scripts;
-        public static TreeView resourcelistpublic;
 
         public static Image warning = Properties.Resources.warning1;
         public static Image error = Properties.Resources.error1;
@@ -50,6 +51,7 @@ namespace LGM
             resourcelist.AfterLabelEdit += resourcelist_AfterLabelEdit;
             resourcelist.NodeMouseDoubleClick += resourcelist_NodeMouseDoubleClick;
 
+            //Initialize MDIClientSupport and update the form's title
             MDIClientSupport.SetBevel(this,false);
             UpdateTitle();
 
@@ -61,6 +63,10 @@ namespace LGM
             Rooms = this.resourcelist.Nodes[4];
             Scripts = this.resourcelist.Nodes[5];
             resourcelist.LabelEdit = true;
+
+            //Set the TreeView's Images
+            for (int i = 0; i < this.resourcelist.Nodes.Count; i++) { this.resourcelist.Nodes[i].ImageIndex = i; this.resourcelist.Nodes[i].SelectedImageIndex = i; }
+            UpdateTreeView(resourcelist);
 
             //Define all the Resource variables
             Resources.DefineResourceArrays();
@@ -139,6 +145,10 @@ namespace LGM
                         ToolStripButton tsb = (ToolStripButton)ti;
                         tsb.Tag = false;
 
+                        tsb.Width = CorrectDPIvalues(24,dx);
+                        tsb.Height = CorrectDPIvalues(24, dx);
+
+
                         tsb.MouseDown += tsb_MouseDown;
                         tsb.Click += tsb_Click;
                         tsb.MouseLeave += tsb_Click;
@@ -158,17 +168,6 @@ namespace LGM
             //Paints the button correctly.
             ToolStripButton btn = (ToolStripButton)sender;
             Graphics g = this.CreateGraphics();
-            
-            if (btn.Tag.GetType() == typeof(bool) && ((bool)btn.Tag))
-            {
-                //If the button is being clicked
-                //e.Graphics.DrawRectangle(new Pen(Color.FromArgb(127,181,236)),new Rectangle(new Point(0,0),new Size(23,23)));
-                e.Graphics.Clear(Color.FromArgb(144, 212, 242));
-            }
-            else
-            {
-                e.Graphics.Clear(Color.White);
-            }
 
             e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
             e.Graphics.DrawImage((Image)btn.Image, btn.Width / 2 - (CorrectDPIvalues(17, g.DpiX) / 2), btn.Height / 2 - (CorrectDPIvalues(17, g.DpiX) / 2), CorrectDPIvalues(17, g.DpiX), CorrectDPIvalues(17, g.DpiX));
@@ -447,50 +446,76 @@ namespace LGM
         #endregion
 
         #region Resource List handling
-        public static void UpdateTreeView(TreeView resourcelist)
+        public static void UpdateTreeView(System.Windows.Forms.TreeView resourcelist)
         {
+            //Define variables
+            ImageList resourceimagelist = new ImageList();
+            resourceimagelist.Images.Add(Properties.Resources.sprite1);
+            resourceimagelist.Images.Add(Properties.Resources.object1);
+            resourceimagelist.Images.Add(Properties.Resources.bg1);
+            resourceimagelist.Images.Add(Properties.Resources.sound1);
+            resourceimagelist.Images.Add(Properties.Resources.room1);
+            resourceimagelist.Images.Add(Properties.Resources.script1);
+            resourcelist.ImageList = resourceimagelist;
+
+
+            //Clear the TreeView
             for (int k = 0; k < resourcelist.Nodes.Count; k++)
             {
                 resourcelist.Nodes[k].Nodes.Clear();
             }
-                for (int i = 0; i < Resources.resources.Count; i++)
+
+            //Add the resources to the treeview's list of nodes
+            for (int i = 0; i < Resources.resources.Count; i++)
+            {
+                if (Resources.resources[i] is Resources.Sprite)
                 {
-                    if (Resources.resources[i] is Resources.Sprite)
-                    {
-                        TreeNode tn = resourcelist.Nodes[0].Nodes.Add(Resources.resources[i].name);
-                        tn.Tag = i;
-                        tn.ToolTipText = i.ToString();
-                    }
-                    else if (Resources.resources[i] is Resources.Object)
-                    {
-                        TreeNode tn = resourcelist.Nodes[1].Nodes.Add(Resources.resources[i].name);
-                        tn.Tag = i;
-                        tn.ToolTipText = i.ToString();
-                    }
-                    else if (Resources.resources[i] is Resources.Background)
-                    {
-                        TreeNode tn = resourcelist.Nodes[2].Nodes.Add(Resources.resources[i].name);
-                        tn.Tag = i;
-                        tn.ToolTipText = i.ToString();
-                    }
-                    else if (Resources.resources[i] is Resources.Sound)
-                    {
-                        TreeNode tn = resourcelist.Nodes[3].Nodes.Add(Resources.resources[i].name);
-                        tn.Tag = i;
-                        tn.ToolTipText = i.ToString();
-                    }
-                    else if (Resources.resources[i] is Resources.Room)
-                    {
-                        TreeNode tn = resourcelist.Nodes[4].Nodes.Add(Resources.resources[i].name);
-                        tn.Tag = i;
-                        tn.ToolTipText = i.ToString();
-                    }
-                    else if (Resources.resources[i] is Resources.Script)
-                    {
-                        TreeNode tn = resourcelist.Nodes[5].Nodes.Add(Resources.resources[i].name);
-                        tn.Tag = i;
-                        tn.ToolTipText = i.ToString();
-                    }
+                    TreeNode tn = new TreeNode(Resources.resources[i].name);
+                    tn.Tag = i;
+                    tn.ToolTipText = i.ToString();
+                    tn.ImageIndex = 0; tn.SelectedImageIndex = 0;
+                    resourcelist.Nodes[0].Nodes.Add(tn);
+                }
+                else if (Resources.resources[i] is Resources.Object)
+                {
+                    TreeNode tn = new TreeNode(Resources.resources[i].name);
+                    tn.Tag = i;
+                    tn.ToolTipText = i.ToString();
+                    tn.ImageIndex = 1; tn.SelectedImageIndex = 1;
+                    resourcelist.Nodes[1].Nodes.Add(tn);
+                }
+                else if (Resources.resources[i] is Resources.Background)
+                {
+                    TreeNode tn = new TreeNode(Resources.resources[i].name);
+                    tn.Tag = i;
+                    tn.ToolTipText = i.ToString();
+                    tn.ImageIndex = 2; tn.SelectedImageIndex = 2;
+                    resourcelist.Nodes[2].Nodes.Add(tn);
+                }
+                else if (Resources.resources[i] is Resources.Sound)
+                {
+                    TreeNode tn = new TreeNode(Resources.resources[i].name);
+                    tn.Tag = i;
+                    tn.ToolTipText = i.ToString();
+                    tn.ImageIndex = 3; tn.SelectedImageIndex = 3;
+                    resourcelist.Nodes[3].Nodes.Add(tn);
+                }
+                else if (Resources.resources[i] is Resources.Room)
+                {
+                    TreeNode tn = new TreeNode(Resources.resources[i].name);
+                    tn.Tag = i;
+                    tn.ToolTipText = i.ToString();
+                    tn.ImageIndex = 4; tn.SelectedImageIndex = 4;
+                    resourcelist.Nodes[4].Nodes.Add(tn);
+                }
+                else if (Resources.resources[i] is Resources.Script)
+                {
+                    TreeNode tn = new TreeNode(Resources.resources[i].name);
+                    tn.Tag = i;
+                    tn.ToolTipText = i.ToString();
+                    tn.ImageIndex = 5; tn.SelectedImageIndex = 5;
+                    resourcelist.Nodes[5].Nodes.Add(tn);
+                }
             }
         }
 
@@ -617,7 +642,7 @@ namespace LGM
             sizeableTreeView1.Visible = resourceListToolStripMenuItem.Checked;
             if (sizeableTreeView1.Visible)
             {
-                sizeableTreeView1.Width = 290;
+                sizeableTreeView1.Width = CorrectDPIvalues(198, this.CreateGraphics().DpiX);
             }
         }
 
@@ -699,11 +724,13 @@ namespace LGM
         private void bgbtn_Click(object sender, EventArgs e)
         {
             AddBackground();
+            UpdateTreeView(resourcelist);
         }
 
         private void soundbtn_Click(object sender, EventArgs e)
         {
             AddSound();
+            UpdateTreeView(resourcelist);
         }
 
         private void roombtn_Click(object sender, EventArgs e)
@@ -724,6 +751,7 @@ namespace LGM
         private void scriptbtn_Click(object sender, EventArgs e)
         {
             AddScript();
+            UpdateTreeView(resourcelist);
         }
         private void renameResourceToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -836,6 +864,11 @@ namespace LGM
         }
 
         private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void menuItem1_Click(object sender, EventArgs e)
         {
 
         }
