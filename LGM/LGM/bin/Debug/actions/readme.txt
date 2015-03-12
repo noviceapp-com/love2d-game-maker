@@ -13,3 +13,5 @@ LGM.
 
 The correct format for the actions along with a guide on how to make your own will be detailed in the wiki shortly.
 For now, try digging around through these files to see if you can figure out how to make your own. :)
+
+Oh, and that categories.txt file? That defines the categories actions can be placed in.

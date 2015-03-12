@@ -12,11 +12,47 @@ namespace LGM
     {
 
         public static List<string> actions = new List<string>();
+        public static List<Category> categories = new List<Category>();
 
         public static string GetAcionName(int actid)
         {
             //Gets the action's name by chopping up and returning the correct portion of the action's text file which defines the action's title.
-            return actions[actid].Substring(0, actions[actid].IndexOf(Environment.NewLine)).Substring(15, actions[actid].Substring(0, actions[actid].IndexOf(Environment.NewLine)).IndexOf("~arg~") - 16);//Substring(15,16);
+            return actions[actid].Substring(0, actions[actid].IndexOf(Environment.NewLine)).Substring(15, actions[actid].Substring(0, actions[actid].IndexOf(Environment.NewLine)).IndexOf("~icon~") - 16);
+        }
+
+        public static int GetAcionCategory(int actid)
+        {
+            //Gets the action's category by chopping up and returning the correct portion of the action's text file which defines the action's category.
+            return Convert.ToInt32(actions[actid].Substring(0, actions[actid].IndexOf(Environment.NewLine)).Substring(actions[actid].Substring(0, actions[actid].IndexOf(Environment.NewLine)).IndexOf("~cat~")+6, 1));
+        }
+
+        public static void UpdateCategories()
+        {
+            categories.Clear();
+
+            if (Actions.actions.Count > 0)
+            {
+                for (int k = 0; k < Actions.actions.Count; k++)
+                {
+                    bool cont = true;
+
+                    foreach (Category cat in categories)
+                    {
+                        if (cat.id == GetAcionCategory(k))
+                        {
+                            cont = false;
+                            break;
+                        }
+                    }
+
+                    if (cont && Directory.Exists(Application.StartupPath + "\\actions") && File.Exists(Application.StartupPath + "\\actions\\categories.txt"))
+                    {
+                        string[] cats = File.ReadAllLines(Application.StartupPath + "\\actions\\categories.txt");
+                        categories.Add(new Category(GetAcionCategory(k), cats[k]));
+                        //MessageBox.Show("CAT " + cats[k], "Debug Message");
+                    };
+                }
+            }
         }
 
         public static string FormatAction(Action act)
@@ -76,6 +112,7 @@ namespace LGM
             public int type = 0;
             public int eventid = 0;
             public int objid;
+            public int category = 0;
             public List<Object> arguments = new List<object>();
 
             public Action(int eventid)
@@ -96,26 +133,16 @@ namespace LGM
             }
         }
 
-        /*public class Types
+        public class Category
         {
-            public int type = 0;
-            public int eventid = 0;
-            public int eventtype = 0;
-            public int objid;
-            public List<Object> arguments = new List<object>();
-        }
+            public int id = 0;
+            public string name = "";
 
-        public class Move : Types
-        {
-            public int x = 0;
-            public int y = 0;
+            public Category (int id,string name)
+            {
+                this.id = id;
+                this.name = name;
+            }
         }
-
-        public class Createid : Types
-        {
-            public int crtid = 0;
-            public int x = 0;
-            public int y = 0;
-        }*/
     }
 }

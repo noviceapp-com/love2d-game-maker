@@ -35,6 +35,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCancel.Location = new System.Drawing.Point(146, 271);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(113, 35);
@@ -45,6 +46,7 @@
             // 
             // btnCreate
             // 
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCreate.Location = new System.Drawing.Point(12, 12);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(183, 32);
@@ -55,6 +57,7 @@
             // 
             // btnStep
             // 
+            this.btnStep.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnStep.Location = new System.Drawing.Point(215, 12);
             this.btnStep.Name = "btnStep";
             this.btnStep.Size = new System.Drawing.Size(178, 32);
@@ -77,7 +80,7 @@
             this.MinimizeBox = false;
             this.Name = "AddEvent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "AddEvent";
+            this.Text = "Add Event";
             this.Load += new System.EventHandler(this.AddEvent_Load);
             this.ResumeLayout(false);
 

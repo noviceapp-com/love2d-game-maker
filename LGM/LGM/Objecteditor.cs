@@ -20,6 +20,7 @@ namespace LGM
         private Image missingimg = Properties.Resources.target;
         public List<int> events = new List<int>();
         public List<int> actions = new List<int>();
+        private List<int> catxpositions = new List<int>();
         private bool OKpressed = false;
 
         public Objecteditor()
@@ -27,29 +28,7 @@ namespace LGM
             InitializeComponent();
             this.FormClosing += Objecteditor_FormClosing;
 
-            TabPage page = tabControl1.SelectedTab;
             actionlist.MouseDoubleClick += actionlist_MouseDoubleClick;
-
-            var controls = page.Controls;
-
-            foreach (var ctrl in controls)
-            {
-                if (((Button)ctrl).Tag != null)
-                {
-                    ((Button)ctrl).Click += new System.EventHandler(AddAction);
-                }
-            }
-        }
-
-        private void GetAllControl(Control c, List<Control> list)
-        {
-            foreach (Control control in c.Controls)
-            {
-                list.Add(control);
-
-                if (control.GetType() == typeof(TabControl))
-                    GetAllControl(control, list);
-            }
         }
 
         void Objecteditor_FormClosing(object sender, FormClosingEventArgs e)
@@ -80,7 +59,6 @@ namespace LGM
                 if (addact.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     Actions.Action act = ((Resources.Object)Resources.resources[id]).events[eventlist.SelectedIndex].actions[index];
-                    //((Resources.Object)Resources.resources[id]).actions
                     act.arguments = addact.arguments;
                     UpdateActionList();
                 }
@@ -150,6 +128,50 @@ namespace LGM
                 }
             }
 
+            if (Actions.actions.Count > 0)
+            {
+                Actions.UpdateCategories();
+                actionstab.Controls.Clear();
+                List<TabPage> tbpgs = new List<TabPage>();
+                tbpgs.Clear();
+
+                foreach (Actions.Category cat in Actions.categories)
+                {
+                    TabPage tbpg = new TabPage(cat.name);
+                    tbpg.BackColor = Color.White;
+                    tbpg.Tag = cat.id;
+                    tbpgs.Add(tbpg);
+                }
+                
+                for (int k = 0; k < Actions.actions.Count; k++)
+                {
+                    //MessageBox.Show("K: " + k.ToString(),"Debug Message");
+                    //MessageBox.Show("!!!!" + Actions.GetAcionCategory(0).ToString() + "!!!!", "Debug Message");
+                    Button actnbtn = new Button();
+                    actnbtn.Location = GetActionbtnpositioning(Actions.GetAcionCategory(k),k);
+                    actnbtn.Size = new System.Drawing.Size(Main.CorrectDPIvalues(50, this.CreateGraphics().DpiX), Main.CorrectDPIvalues(39, this.CreateGraphics().DpiX));
+                    actnbtn.Tag = k;
+                    actnbtn.FlatStyle = FlatStyle.System;
+                    (new ToolTip()).SetToolTip(actnbtn, Actions.GetAcionName(k));
+                    actnbtn.Click += new System.EventHandler(AddAction);
+                    actnbtn.Text = Actions.GetAcionName(k);
+
+                    foreach (TabPage tbpgg in tbpgs)
+                    {
+                        if ((int)tbpgg.Tag == Actions.GetAcionCategory(k))
+                        {
+                            tbpgg.Controls.Add(actnbtn);
+                        }
+                    }
+                }
+
+                foreach (TabPage tbpgg in tbpgs)
+                {
+                    actionstab.Controls.Add(tbpgg);
+                }
+            }
+            
+
             UpdateActionList();
 
             if (events.Count > 0)
@@ -159,6 +181,27 @@ namespace LGM
 
             this.Text = name + " - Object Editor";
             textBox1.Text = name;
+        }
+
+        private Point GetActionbtnpositioning(int catid,int k)
+        {
+            //NOTE: TEMPORARY FUNCTION. Will fix soon. ;)
+            //Main.CorrectDPIvalues(62, this.CreateGraphics().DpiX);
+            Point pnt = new Point();
+
+            /*if (catxpositions.Count > 0 && catxpositions[catid] > Main.CorrectDPIvalues(62, this.CreateGraphics().DpiX))
+            {
+                pnt.Y += 70;
+            }
+            else
+            {
+                catxpositions.Add(k);
+            }*/
+            pnt.X = k * Main.CorrectDPIvalues(62, this.CreateGraphics().DpiX);
+            pnt.X += Main.CorrectDPIvalues(5, this.CreateGraphics().DpiX);
+            pnt.Y = 0;
+
+            return pnt;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -224,16 +267,25 @@ namespace LGM
 
         private void AddAction(object sender, EventArgs e)
         {
-            LGM.AddAction addact = new LGM.AddAction();
-            addact.actid = -1;
-            addact.type = Convert.ToInt32(((Button)sender).Tag);
-            addact.objid = id;
-            addact.eventid = eventlist.SelectedIndex;
-            if (addact.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (eventlist.Items.Count > 0)
             {
-                Actions.Add(id, eventlist.SelectedIndex, events[eventlist.SelectedIndex], addact.u, addact.arguments);
-                Resources.Object obj = (Resources.Object)Resources.resources[id];
-                UpdateActionList();                
+                LGM.AddAction addact = new LGM.AddAction();
+                addact.actid = -1;
+                addact.type = Convert.ToInt32(((Button)sender).Tag);
+                addact.objid = id;
+                addact.eventid = eventlist.SelectedIndex;
+
+                if (addact.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    Actions.Add(id, eventlist.SelectedIndex, events[eventlist.SelectedIndex], addact.u, addact.arguments);
+                    Resources.Object obj = (Resources.Object)Resources.resources[id];
+                    UpdateActionList();
+                }
+            }
+            else
+            {
+                System.Media.SystemSounds.Asterisk.Play();
+                CustomMessageBox.Show("You must add an event first!","Love Game Maker",CustomMessageBox.eDialogButtons.OK,Main.warning);
             }
         }
 

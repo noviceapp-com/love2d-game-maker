@@ -70,6 +70,7 @@ namespace LGM
             List<string> ret = new List<string>();
             int len = searchString.Length;
             int start = -len;
+
             while (true)
             {
                 start = source.IndexOf(searchString, start + len);
@@ -89,6 +90,7 @@ namespace LGM
         {
             arguments.Clear();
             bool shouldclose = true;
+
             foreach (TextBox tbox in tboxes)
             {
                 if (tbox.Text == "")
