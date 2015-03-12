@@ -1,4 +1,4 @@
-﻿# Love Game Maker
+<div align="center"><img src="https://raw.githubusercontent.com/Radfordhound/love2d-game-maker/development/art/logos/logosmall.png" width="480" height="270"></img></div>
 
 A development tool designed for easy creation of games using the LÖVE 2D open-source game engine. Based off of Game Maker by Mark Overmans.
 
