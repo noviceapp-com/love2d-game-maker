@@ -173,28 +173,16 @@
     <None Include="Resources\Image1.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\open1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\save1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\new1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\find1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\help1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\undo1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\redo1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\settings1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cut1.png" />
@@ -206,12 +194,6 @@
     <None Include="Resources\paste1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\play.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\build.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\sprite1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -219,12 +201,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bg1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sound1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\room1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\script1.png" />
@@ -243,6 +219,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon051 SDCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon140 CircledBorderTriangleRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon066 Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\build.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sound1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -49,6 +49,7 @@ namespace LGM
             toolStrip.Renderer = new MyToolStripSystemRenderer();
             resourcelist.AfterLabelEdit += resourcelist_AfterLabelEdit;
             resourcelist.NodeMouseDoubleClick += resourcelist_NodeMouseDoubleClick;
+
             MDIClientSupport.SetBevel(this,false);
             UpdateTitle();
 
@@ -60,18 +61,10 @@ namespace LGM
             Rooms = this.resourcelist.Nodes[4];
             Scripts = this.resourcelist.Nodes[5];
             resourcelist.LabelEdit = true;
-            float dx = this.CreateGraphics().DpiX;
-            resourcelist.Width = CorrectDPIvalues(198,dx);
-
-            MessageBox.Show(CorrectDPIvalues(198, dx).ToString());
 
             //Define all the Resource variables
             Resources.DefineResourceArrays();
-
-            this.AutoScaleBaseSize = new Size(5, 13);
         }
-
-        
         
         private void Main_Load(object sender, EventArgs e)
         {
@@ -130,33 +123,55 @@ namespace LGM
         private void CorrectDPI()
         {
             //Corrects the form to be the right size according to the current DPI.
-            //TODO: Correct size of main form.
-            /*float dx;
+            float dx;
             Graphics g = this.CreateGraphics();
 
             try
             {
                 dx = g.DpiX;
-                MessageBox.Show(dx.ToString() + " , " + this.Width.ToString() + " , " + this.Height.ToString());
-                if (dx == 96)
+
+                sizeableTreeView1.Width = CorrectDPIvalues(198, dx);
+
+                foreach (ToolStripItem ti in toolStrip.Items)
                 {
-                    this.Width = 471;
-                    this.Height = 171;
-                    btnYes.Size = new System.Drawing.Size(86, 24);
-                    btnYes.Location = new System.Drawing.Point(166, 16);
+                    if (ti.GetType() == typeof(ToolStripButton))
+                    {
+                        ToolStripButton tsb = (ToolStripButton)ti;
+                        tsb.Tag = false;
+
+                        tsb.MouseDown += tsb_MouseDown;
+                        tsb.Click += tsb_Click;
+                        tsb.MouseLeave += tsb_Click;
+                        tsb.Paint += toolstripbtn_Paint;
+                    }
                 }
-                else if (dx == 144)
-                {
-                    this.Width = 704;
-                    this.Height = 261;
-                    btnYes.Size = new System.Drawing.Size(129, 37);
-                    btnYes.Location = new System.Drawing.Point(249, 29);
-                }
+
             }
             finally
             {
                 g.Dispose();
-            }*/
+            }
+        }
+
+        private void toolstripbtn_Paint(object sender, PaintEventArgs e)
+        {
+            //Paints the button correctly.
+            ToolStripButton btn = (ToolStripButton)sender;
+            Graphics g = this.CreateGraphics();
+            
+            if (btn.Tag.GetType() == typeof(bool) && ((bool)btn.Tag))
+            {
+                //If the button is being clicked
+                //e.Graphics.DrawRectangle(new Pen(Color.FromArgb(127,181,236)),new Rectangle(new Point(0,0),new Size(23,23)));
+                e.Graphics.Clear(Color.FromArgb(144, 212, 242));
+            }
+            else
+            {
+                e.Graphics.Clear(Color.White);
+            }
+
+            e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+            e.Graphics.DrawImage((Image)btn.Image, btn.Width / 2 - (CorrectDPIvalues(17, g.DpiX) / 2), btn.Height / 2 - (CorrectDPIvalues(17, g.DpiX) / 2), CorrectDPIvalues(17, g.DpiX), CorrectDPIvalues(17, g.DpiX));
         }
         #endregion
 
@@ -516,6 +531,17 @@ namespace LGM
         #endregion
 
         #region All the buttons/Menu items
+        private void tsb_MouseDown(object sender, EventArgs e)
+        {
+            ((ToolStripButton)sender).Tag = true;
+        }
+        
+        private void tsb_Click(object sender, EventArgs e)
+        {
+            ((ToolStripButton)sender).Tag = false;
+        }
+
+
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Save(true);

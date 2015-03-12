@@ -80,3 +80,24 @@ namespace LGM
         }
     }
 }
+
+/*        private System.Windows.Forms.ToolStripButton newbtn;
+        private System.Windows.Forms.ToolStripButton openbtn;
+        private System.Windows.Forms.ToolStripButton savebtn;
+        private System.Windows.Forms.ToolStripButton helpbtn;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.ToolStripMenuItem tileWindowsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verticallyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem horizontallyToolStripMenuItem;
+        private SizeableTreeView sizeableTreeView1;
+        private System.Windows.Forms.TreeView resourcelist;
+        private System.Windows.Forms.ToolStripMenuItem resourceListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton testbtn;
+        private System.Windows.Forms.ToolStripButton buildbtn;
+        private System.Windows.Forms.ToolStripButton settingsbtn;
+        private System.Windows.Forms.ToolStripButton spritebtn;
+        private System.Windows.Forms.ToolStripButton objectbtn;
+        private System.Windows.Forms.ToolStripButton bgbtn;
+        private System.Windows.Forms.ToolStripButton soundbtn;
+        private System.Windows.Forms.ToolStripButton roombtn;
+        private System.Windows.Forms.ToolStripButton scriptbtn;*/
