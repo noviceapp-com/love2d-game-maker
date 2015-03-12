@@ -1,5 +1,7 @@
 ﻿# Love Game Maker
 
+A development tool designed for easy creation of games using the LÖVE 2D open-source game engine. Based off of Game Maker by Mark Overmans.
+
 ##What's Love?!?
 
 What's Love? You've never loved someone? You must have a sad life...
