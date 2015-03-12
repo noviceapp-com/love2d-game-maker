@@ -1,4 +1,71 @@
+@font-face {
+    font-family: fnt;
+    src: url(actionj.ttf);
+}
+
 #logo
 {
 	text-align: left;
+	float: left;
+	position: fixed;
+	top: 10px;
+}
+
+#navBar
+{
+	text-align: left;
+	width: screen.width;
+	height: 50px;
+	margin-top: 55px;
+	margin-left: 50px;
+    background-color: #90D4F2;
+}
+
+#navBar ul
+{
+	margin-left: 170px;
+	padding-top: 16px;
+	list-style-type: none;
+}
+
+#navBar li
+{
+	display: inline;
+	background-color: #FFFFFF;
+	font-family: fnt;
+	text-align: center;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+#navBar li:hover
+{
+	background-color: #CECECE;
+}
+
+#navBar li.selected
+{
+	background-color: #0026FF;
+	color: #FFFFFF;
+}
+
+#navbarlink
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+#mainContent
+{
+	text-align: center;
+	background-color: #FFFFFF;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+body
+{
+	background-color: #43BBEF;
 }
