@@ -24,13 +24,14 @@ namespace LGM
         private int childFormNumber = 0;
         public static string projectname = null;
         public static bool issaved = true;
+
+        public static System.Windows.Forms.TreeView resourcelistpublic;
         TreeNode Sprites;
         TreeNode Objects;
         TreeNode Backgrounds;
         TreeNode Sounds;
         TreeNode Rooms;
         TreeNode Scripts;
-        public static TreeView resourcelistpublic;
 
         public static Image warning = Properties.Resources.warning1;
         public static Image error = Properties.Resources.error1;
@@ -49,6 +50,8 @@ namespace LGM
             toolStrip.Renderer = new MyToolStripSystemRenderer();
             resourcelist.AfterLabelEdit += resourcelist_AfterLabelEdit;
             resourcelist.NodeMouseDoubleClick += resourcelist_NodeMouseDoubleClick;
+
+            //Initialize MDIClientSupport and update the form's title
             MDIClientSupport.SetBevel(this,false);
             UpdateTitle();
 
@@ -61,13 +64,13 @@ namespace LGM
             Scripts = this.resourcelist.Nodes[5];
             resourcelist.LabelEdit = true;
 
+            //Set the TreeView's Images
+            for (int i = 0; i < this.resourcelist.Nodes.Count; i++) { this.resourcelist.Nodes[i].ImageIndex = i; this.resourcelist.Nodes[i].SelectedImageIndex = i; }
+            UpdateTreeView(resourcelist);
+
             //Define all the Resource variables
             Resources.DefineResourceArrays();
-
-            this.AutoScaleBaseSize = new Size(5, 13);
         }
-
-        
         
         private void Main_Load(object sender, EventArgs e)
         {
@@ -126,33 +129,48 @@ namespace LGM
         private void CorrectDPI()
         {
             //Corrects the form to be the right size according to the current DPI.
-            //TODO: Correct size of main form.
-            /*float dx;
+            float dx;
             Graphics g = this.CreateGraphics();
 
             try
             {
                 dx = g.DpiX;
-                MessageBox.Show(dx.ToString() + " , " + this.Width.ToString() + " , " + this.Height.ToString());
-                if (dx == 96)
+
+                sizeableTreeView1.Width = CorrectDPIvalues(198, dx);
+
+                foreach (ToolStripItem ti in toolStrip.Items)
                 {
-                    this.Width = 471;
-                    this.Height = 171;
-                    btnYes.Size = new System.Drawing.Size(86, 24);
-                    btnYes.Location = new System.Drawing.Point(166, 16);
+                    if (ti.GetType() == typeof(ToolStripButton))
+                    {
+                        ToolStripButton tsb = (ToolStripButton)ti;
+                        tsb.Tag = false;
+
+                        tsb.Width = CorrectDPIvalues(24,dx);
+                        tsb.Height = CorrectDPIvalues(24, dx);
+
+
+                        tsb.MouseDown += tsb_MouseDown;
+                        tsb.Click += tsb_Click;
+                        tsb.MouseLeave += tsb_Click;
+                        tsb.Paint += toolstripbtn_Paint;
+                    }
                 }
-                else if (dx == 144)
-                {
-                    this.Width = 704;
-                    this.Height = 261;
-                    btnYes.Size = new System.Drawing.Size(129, 37);
-                    btnYes.Location = new System.Drawing.Point(249, 29);
-                }
+
             }
             finally
             {
                 g.Dispose();
-            }*/
+            }
+        }
+
+        private void toolstripbtn_Paint(object sender, PaintEventArgs e)
+        {
+            //Paints the button correctly.
+            ToolStripButton btn = (ToolStripButton)sender;
+            Graphics g = this.CreateGraphics();
+
+            e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+            e.Graphics.DrawImage((Image)btn.Image, btn.Width / 2 - (CorrectDPIvalues(17, g.DpiX) / 2), btn.Height / 2 - (CorrectDPIvalues(17, g.DpiX) / 2), CorrectDPIvalues(17, g.DpiX), CorrectDPIvalues(17, g.DpiX));
         }
         #endregion
 
@@ -428,50 +446,76 @@ namespace LGM
         #endregion
 
         #region Resource List handling
-        public static void UpdateTreeView(TreeView resourcelist)
+        public static void UpdateTreeView(System.Windows.Forms.TreeView resourcelist)
         {
+            //Define variables
+            ImageList resourceimagelist = new ImageList();
+            resourceimagelist.Images.Add(Properties.Resources.sprite1);
+            resourceimagelist.Images.Add(Properties.Resources.object1);
+            resourceimagelist.Images.Add(Properties.Resources.bg1);
+            resourceimagelist.Images.Add(Properties.Resources.sound1);
+            resourceimagelist.Images.Add(Properties.Resources.room1);
+            resourceimagelist.Images.Add(Properties.Resources.script1);
+            resourcelist.ImageList = resourceimagelist;
+
+
+            //Clear the TreeView
             for (int k = 0; k < resourcelist.Nodes.Count; k++)
             {
                 resourcelist.Nodes[k].Nodes.Clear();
             }
-                for (int i = 0; i < Resources.resources.Count; i++)
+
+            //Add the resources to the treeview's list of nodes
+            for (int i = 0; i < Resources.resources.Count; i++)
+            {
+                if (Resources.resources[i] is Resources.Sprite)
                 {
-                    if (Resources.resources[i] is Resources.Sprite)
-                    {
-                        TreeNode tn = resourcelist.Nodes[0].Nodes.Add(Resources.resources[i].name);
-                        tn.Tag = i;
-                        tn.ToolTipText = i.ToString();
-                    }
-                    else if (Resources.resources[i] is Resources.Object)
-                    {
-                        TreeNode tn = resourcelist.Nodes[1].Nodes.Add(Resources.resources[i].name);
-                        tn.Tag = i;
-                        tn.ToolTipText = i.ToString();
-                    }
-                    else if (Resources.resources[i] is Resources.Background)
-                    {
-                        TreeNode tn = resourcelist.Nodes[2].Nodes.Add(Resources.resources[i].name);
-                        tn.Tag = i;
-                        tn.ToolTipText = i.ToString();
-                    }
-                    else if (Resources.resources[i] is Resources.Sound)
-                    {
-                        TreeNode tn = resourcelist.Nodes[3].Nodes.Add(Resources.resources[i].name);
-                        tn.Tag = i;
-                        tn.ToolTipText = i.ToString();
-                    }
-                    else if (Resources.resources[i] is Resources.Room)
-                    {
-                        TreeNode tn = resourcelist.Nodes[4].Nodes.Add(Resources.resources[i].name);
-                        tn.Tag = i;
-                        tn.ToolTipText = i.ToString();
-                    }
-                    else if (Resources.resources[i] is Resources.Script)
-                    {
-                        TreeNode tn = resourcelist.Nodes[5].Nodes.Add(Resources.resources[i].name);
-                        tn.Tag = i;
-                        tn.ToolTipText = i.ToString();
-                    }
+                    TreeNode tn = new TreeNode(Resources.resources[i].name);
+                    tn.Tag = i;
+                    tn.ToolTipText = i.ToString();
+                    tn.ImageIndex = 0; tn.SelectedImageIndex = 0;
+                    resourcelist.Nodes[0].Nodes.Add(tn);
+                }
+                else if (Resources.resources[i] is Resources.Object)
+                {
+                    TreeNode tn = new TreeNode(Resources.resources[i].name);
+                    tn.Tag = i;
+                    tn.ToolTipText = i.ToString();
+                    tn.ImageIndex = 1; tn.SelectedImageIndex = 1;
+                    resourcelist.Nodes[1].Nodes.Add(tn);
+                }
+                else if (Resources.resources[i] is Resources.Background)
+                {
+                    TreeNode tn = new TreeNode(Resources.resources[i].name);
+                    tn.Tag = i;
+                    tn.ToolTipText = i.ToString();
+                    tn.ImageIndex = 2; tn.SelectedImageIndex = 2;
+                    resourcelist.Nodes[2].Nodes.Add(tn);
+                }
+                else if (Resources.resources[i] is Resources.Sound)
+                {
+                    TreeNode tn = new TreeNode(Resources.resources[i].name);
+                    tn.Tag = i;
+                    tn.ToolTipText = i.ToString();
+                    tn.ImageIndex = 3; tn.SelectedImageIndex = 3;
+                    resourcelist.Nodes[3].Nodes.Add(tn);
+                }
+                else if (Resources.resources[i] is Resources.Room)
+                {
+                    TreeNode tn = new TreeNode(Resources.resources[i].name);
+                    tn.Tag = i;
+                    tn.ToolTipText = i.ToString();
+                    tn.ImageIndex = 4; tn.SelectedImageIndex = 4;
+                    resourcelist.Nodes[4].Nodes.Add(tn);
+                }
+                else if (Resources.resources[i] is Resources.Script)
+                {
+                    TreeNode tn = new TreeNode(Resources.resources[i].name);
+                    tn.Tag = i;
+                    tn.ToolTipText = i.ToString();
+                    tn.ImageIndex = 5; tn.SelectedImageIndex = 5;
+                    resourcelist.Nodes[5].Nodes.Add(tn);
+                }
             }
         }
 
@@ -512,6 +556,17 @@ namespace LGM
         #endregion
 
         #region All the buttons/Menu items
+        private void tsb_MouseDown(object sender, EventArgs e)
+        {
+            ((ToolStripButton)sender).Tag = true;
+        }
+        
+        private void tsb_Click(object sender, EventArgs e)
+        {
+            ((ToolStripButton)sender).Tag = false;
+        }
+
+
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Save(true);
@@ -587,7 +642,7 @@ namespace LGM
             sizeableTreeView1.Visible = resourceListToolStripMenuItem.Checked;
             if (sizeableTreeView1.Visible)
             {
-                sizeableTreeView1.Width = 290;
+                sizeableTreeView1.Width = CorrectDPIvalues(198, this.CreateGraphics().DpiX);
             }
         }
 
@@ -669,11 +724,13 @@ namespace LGM
         private void bgbtn_Click(object sender, EventArgs e)
         {
             AddBackground();
+            UpdateTreeView(resourcelist);
         }
 
         private void soundbtn_Click(object sender, EventArgs e)
         {
             AddSound();
+            UpdateTreeView(resourcelist);
         }
 
         private void roombtn_Click(object sender, EventArgs e)
@@ -694,6 +751,7 @@ namespace LGM
         private void scriptbtn_Click(object sender, EventArgs e)
         {
             AddScript();
+            UpdateTreeView(resourcelist);
         }
         private void renameResourceToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -804,38 +862,31 @@ namespace LGM
                 }
             }
         }
+
+        private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void menuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class MyToolStripSystemRenderer : ToolStripSystemRenderer
     {
-        //A custom toolstriprenderer to make the project look a little nicer.
-        //The design currently used by the project is a temporary design heavily based off of "Game Maker" by Mark Overmans.
-        //The final project will have a different design, and as such, will likely not need this function.
+        /*
+         * A custom toolstriprenderer to make the project look a little nicer.
+         * The design currently used by the project is a temporary design heavily based off of "Game Maker" by Mark Overmans.
+         * The final project will have a different design, and as such, will likely not need this function.
+        */
+
         public MyToolStripSystemRenderer() { }
-
-        protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
-        {
-            Rectangle r = e.Item.ContentRectangle;
-
-            if (e.Item.Selected)
-            {
-                LinearGradientBrush b = new LinearGradientBrush(r,Color.FromArgb(255,227,224,215),Color.White,LinearGradientMode.Vertical);
-                try
-                {
-                    e.Graphics.FillRectangle(b, e.Item.ContentRectangle);
-                }
-                finally
-                {
-                    b.Dispose();
-                }
-            }
-            base.OnRenderMenuItemBackground(e);
-        }
 
         protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
         {
-            //Making this non-op removes the artifact line that is typically drawn on the bottom edge
-            base.OnRenderToolStripBorder(e);
+            //Basically, putting nothing here keeps the toolstrip from drawing a border, which is exactly what we want. :)
         }
     }
 }

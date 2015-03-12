@@ -1,10 +1,6 @@
 This file details the next few important tasks that need to be done to the project.
 IT DOES NOT DETAIL ALL THE THINGS THAT MUST BE DONE!!!
 
-Must add custom actions/better action support.
-
 Must add the resource editors. (Such as the sound editors, background editors, etc.) Temporarially styling the project off of Game Maker. So, if you don't know what to make it look like... well, make it look like that. 
-
-Must fix the DPI! While most things work correctly, they look way too big on resolutions smaller than 144 DPI.
 
 Lots of other things

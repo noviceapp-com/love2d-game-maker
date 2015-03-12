@@ -121,6 +121,7 @@
             // 
             // button2
             // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button2.Location = new System.Drawing.Point(87, 8);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 59);
@@ -131,6 +132,7 @@
             // 
             // button1
             // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Location = new System.Drawing.Point(6, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 59);
@@ -213,6 +215,7 @@
             // 
             // btnaddevent
             // 
+            this.btnaddevent.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnaddevent.Location = new System.Drawing.Point(39, 16);
             this.btnaddevent.Name = "btnaddevent";
             this.btnaddevent.Size = new System.Drawing.Size(155, 38);
@@ -263,6 +266,7 @@
             // 
             // btnOK
             // 
+            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnOK.Image = global::LGM.Properties.Resources.ok;
             this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOK.Location = new System.Drawing.Point(61, 404);
@@ -295,6 +299,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(58, 36);
             this.comboBox1.Name = "comboBox1";

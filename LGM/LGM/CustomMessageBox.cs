@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ * This code is a partially modified version of the code found here: http://stackoverflow.com/questions/6560493/messagebox-show-custom-icon
+ * The author (Brian Graham) claims it can be used without copy-right as seen in the second comment on his answer.
+
+ * If the author of this code wishes I do not use it in this application, simply send me an email at radfordhound@gmail.com telling me so with
+ * some proof that you are, in fact, the author, and I'll remove it from this program as soon as possible.
+*/
+
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 

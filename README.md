@@ -1,8 +1,8 @@
-﻿# Love Game Maker
+<div align="center"><img src="https://raw.githubusercontent.com/Radfordhound/love2d-game-maker/development/art/logos/logosmall.png" width="480" height="270"></img></div>
 
-DISCLAIMER: As of now, this readme is a "filler" readme. Basically it details things as they will be in the project's complete state that may not apply as of now. If you notice an issue with the readme, please submit an "issue" on this file explaining the problem, and I'll fix it right away. Or, if you'd like to take matters into your own hands, fork the repository and make your edits to the readme there. Then submit your modified readme as a pull request. Thanks for reading, and enjoy the project! :)
+A development tool designed for easy creation of games using the LÖVE 2D open-source game engine. Based off of Game Maker by Mark Overmans.
 
-#What's Love?!?
+##What's Love?!?
 
 What's Love? You've never loved someone? You must have a sad life...
 
@@ -79,11 +79,11 @@ LÖVE 2D uses a just-in-time compiler known as 'luajit', which, in many ways, is
 
 Best of all, though, is the fact that it's multi-platform and has a great community! While it's currently limited to only Windows, Mac OSX 10.6+, and Linux, the community is very active and has used the source for the engine to port it to various other platforms, such as Android (https://love2d.org/forums/viewtopic.php?f=11&t=79682) and iOS (https://love2d.org/forums/viewtopic.php?f=12&t=76985).
 
-#What's Love Game Maker?
+##What's Love Game Maker?
 
 Love Game Maker is a program inspired by Mark Overman's "Game Maker" which allows for easy drag-n-drop coding of games using the LÖVE 2D as a background. It's basically the already-simple LÖVE 2D, but with no actual coding involved!
 
-#But... why? :S
+##But... why? :S
 
 At this point you may be asking youself "If LÖVE 2D is already so easy, why are you making an engine to make it even easier?".
 
@@ -147,48 +147,48 @@ There's a fine line between "too easy" and "too hard". Too easy being incredibly
 
 And that, fellow readers who actually stuck through this whole thing, is the purpose of Love Game Maker. To be that line. To be the perfect tool for holding your hand and guiding you through the harsh cold, training you, AND letting you unleash your inner potential, all without ever leaving you behind for a single second. It's the perfect combination between your tutor and your favorite clown at the circus. It teaches you important principles while letting you do what you want and all in all just leaves you knowing what you're doing, and having an insane amount of fun while doing it.
 
-#Wow! Sounds great! Is there any way I can help?
+##Wow! Sounds great! Is there any way I can help?
 
 Definitely! While I'm confident in my skills to pull something like this off, I can't do it well enough to meet the goals of the project without help from you! That's why this project's on GitHub! So you can contribute your awesome talents to help create the most amazing piece of software that we can!
 
 Here's a quick guide on what YOU can do to help out depending on your skills.
 
-##Can you code in C#?
+###Can you code in C#?
 
 Awesome! Go ahead and fork the project's source. Then you can clone your fork and make whatever changes you please! After that you just submit merge/pull requests for whatever files you modified/added, and if I see that the changes are for the better (Which I will 80% of the time.), I'll accept your request and your code will be added to the official project! Basically, yeah. It's code. On GitHub. You know the drill. ;)
 
-##Can you draw?
+###Can you draw?
 
 Fancy! You may not realize it, but projects like Love Game Maker actually heavily benefit from nice graphics!
 We currently need icons, a logo, some nice example artwork newbies can use without fear of copyright, artwork for the up-coming website, and possibly "promotional" artwork, although this may not be required as screenshots of the software should be enough in most cases. (No, the project won't cost anything. But we still need artwork that makes the program look good/professional enough if we want anyone to actually download it.) If you're good at any of these things and have the time to do it, we'd love your help! Simply draw your artwork the way you normally do and add it to the appropriate folder under the "art" folder of the project.
 
-##Can you Make nice music/sound effects?
+###Can you Make nice music/sound effects?
 
 Groovy! While the need for music/sound effects for this project is more limited than certain other materials, we still need it! Mainly as resources we can include with the engine that newbie's can use without fear of copyright, as well as audio for project videos ("Promotional", if you will. Although no one's making any money off of this project, so...), and possibly certain sound effects for the application (Although this likely won't really be necessary, as the project isn't really designed to be a very "audible" application.). If you're good at any of these things and have the time to do it, we'd love your help! Simply make your music/sound effects the way you normally do and add it to the appropriate folder under the "audio" folder of the project.
 
-##Are you good at writing?
+###Are you good at writing?
 
 Superb! You may be thinking to yourself "Oh, you don't need writers. You already typed this thing up by yourself.". Yes. Yes I did. But let me tell you. IT WASN'T FUN/EASY!!! We're in need of writers for lots of things, such as documentation, "promotional" text (The project is non-commercial, as in no one makes any money off it. However, we still need something to encourage new users to download it!), and basically anything like this that requires long, clever, though-out writing (Cuz' my brain can't take it! Geez! It's harder than it looks! xD). If you're good at any of these things and have the time to do so, we'd love your help! We'll post what we need written within "TXTTODO.txt" at the root of the project as well as where to put it, so if you're interested, check it out!
 
-##Are you good at legal gobbly-gook?
+###Are you good at legal gobbly-gook?
 
 OH THANK GOODNESS!!! The project, of course, needs licenses detailing what you can and cannot do with it, much like anything else. The problem is, most of us are focused on making stuff, and while licenses are defintely a major part of, well, pretty much any project, it's something often over-looked as it's extremely complicated for the project creators to sort out by themselves! I, essentially, dread copyright as it means you have to have everything exactly so with no loop holes, or else you're in serious trouble. And it's really hard to make licenses! If you have any legal experience and/or can write detailed licenses with little to no loopholes (While still maintaining a license that's easy-to-read for the average Joe), I'd love your help! PLEASE get in touch with me at radfordhound@gmail.com. I'll explain the current license as well as what kind of license(s) the project (As well as it's assets.) needs in any required detail there. Thanks a bunch! :)
 
-##Are you good at designing things?
+###Are you good at designing things?
 
 Great! We need that! :) One of the most important parts of any piece of software is the user-interface, as most of us know. This often makes or breaks the entire experience and can make the difference between making the user fall in love with our code, or having them curse us for all eternity. It's especially true in this project, however, as one of the most important aspects of it (As mentioned above) is that it's both extremely easy to use for new-comers/kids, but still allows for complex creations without forcing you to drag-n-drop everything with overly-cutesy graphics, all while looking fun and pleasant to the eye, and more like an adventure than a programming IDE. Yeah, I know. That's really hard to do. That's why I need you! If you have any experience with design, specifficaly software design, your help would be greatly appretciated! Simply design a user-interface that matches the requirements listed above (Is easy to use while still allowing for commplexity, etc.), make some way to easily describe/explain it, preferrably with visuals showing how it should look (Such as a powerpoint.), And email it to me at radfordhound@gmail.com. If I like your design, I'll add it to a poll of designs. Whichever design is chosen is the one that shall be used.
 
 Not so good at designing software? That's OK! We still need a website! :D If you have any experience in web design and have a nice, simple, but welcoming design for a site in your head, please e-mail it to me at radfordhound@gmail.com. I'll get back to you as soon as I can.
 
-##Are you good at web development? Such as HTML/Javascript/PHP?
+###Are you good at web development? Such as HTML/Javascript/PHP?
 
 Cool! Obviously, as mentioned several times above, this project needs a website. And not just any website, a website good enough to make people actually want to download the software. It has to be simple and to-the-point without any un-needed baggage holding it down, while still supporting the features needed (Such as a well-built forum and a wiki.) and being pleasing to the eye. If you're good at web development and think you can contribute to any of these things, please get in touch with me at radfordhound@gmail.com! We'll definitely be needing your help! :)
 
-##Can you beta-test software?
+###Can you beta-test software?
 
 Neat! Simply download the latest binary release version of the source within the releases tab, try it out, and submit an "issue" for anything you notice that's wrong with it! Thanks! :)
 
-##Do you have anything else you can contribute?
+###Do you have anything else you can contribute?
 
 Are you a good leader? Prove your worth by helping out in any way possible, and I may just make you an administrator over the project/site/forum! Do you have something you're willing to donate for the project? (Such as money, servers, blood, etc. *Just kidding about the blood thing.*) Get in touch with me at radfordhound@gmail.com. We'd very much appreticate that! :) Are you popular? Spread the news! We need as much help as we can get! There's lots of ways you can help out even if you don't meet any of the above critera, so if you have a way of contributing to the project, by all means, go ahead!
 
@@ -198,17 +198,17 @@ Thanks so much to all of you for your epic contributions in advance! It's my hop
 
 ...And all of you will be credited, of course. :P  *Duh!*
 
-#What's the license for the project?
+##What's the license for the project?
 
 The license is detailled in the "projectlicense.txt" file.
 
-#This part of the readme/Project is broken/unfinished!
+##This part of the readme/Project is broken/unfinished!
 
 Thanks for noticing! If it's just been added/modified, that's probably why and I'm likely already aware of it and in the process of fixing it. However, no one knows everything and so there'll likely be thousands of glitches with the project/unfinished things that I'm completely un-aware of!
 
 If you notice something that's "off" and are pretty sure I'm un-aware of it, submit an "issue" about the specific file in question, and I'll respond as quickly as I can. Thanks for your help! :)
 
-#I've got a question that wasn't answered in this readme or would like to contact you personally.
+##I've got a question that wasn't answered in this readme or would like to contact you personally.
 
 Email me at radfordhound@gmail.com! I'll try to resond ASAP, though please don't expect any record-breaking speed. I don't check my email super often! I should respond to you within a week, so... yeah. :P
 

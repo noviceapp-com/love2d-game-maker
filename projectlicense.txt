@@ -20,11 +20,15 @@ This program uses the excellent "FastColoredTextBox" example under the following
 
 The LÖVE 2D engine, which is included with this project, is under the license detailed in the license.txt file within the love2d folder.
 
-7-Zip, which is included with this project, is under the license detailed in the 7zlicense.txt file at the root of the project.
+7-Zip, which is included with this project, is under the license detailed in the 7zlicense.txt file within the "licenses" folder.
 
 The Middleclass library, which is included with this project, is under the license detailed in the MIT-LICENSE.txt file within the "libraries" folder.
 
-The rest of this project is under the ZLIB License, which is as follows:
+The NativeMethods.cs, TreeView.cs, and Button.cs files are part of the Windows Forms Aero Project (At http://windowsformsaero.codeplex.com/), and are under the license detailed in the windowsformaerolicense.txt file within the licenses folder.
+(I think? The project was un-clear as to wether it was under the Microsoft Reciprocal License (Ms-RL) or the Microsoft Community License (Ms-CL). So, if I'm doing something incorrectly, please let me know so I can fix it right away!)
+
+
+The rest of this project, including it's art and audio assets, is under the ZLIB License, which is as follows:
 
 
 This software is provided 'as-is', without any express or implied
