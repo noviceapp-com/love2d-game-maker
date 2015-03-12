@@ -28,7 +28,7 @@ The NativeMethods.cs, TreeView.cs, and Button.cs files are part of the Windows F
 (I think? The project was un-clear as to wether it was under the Microsoft Reciprocal License (Ms-RL) or the Microsoft Community License (Ms-CL). So, if I'm doing something incorrectly, please let me know so I can fix it right away!)
 
 
-The rest of this project is under the ZLIB License, which is as follows:
+The rest of this project, including it's art and audio assets, is under the ZLIB License, which is as follows:
 
 
 This software is provided 'as-is', without any express or implied
