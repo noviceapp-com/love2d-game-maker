@@ -54,18 +54,20 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(200, 497);
+            this.tabControl1.Size = new System.Drawing.Size(140, 313);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.objlist);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(192, 464);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Size = new System.Drawing.Size(132, 287);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Objects";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -74,9 +76,10 @@
             // 
             this.objlist.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.objlist.FormattingEnabled = true;
-            this.objlist.Location = new System.Drawing.Point(8, 65);
+            this.objlist.Location = new System.Drawing.Point(5, 42);
+            this.objlist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.objlist.Name = "objlist";
-            this.objlist.Size = new System.Drawing.Size(178, 28);
+            this.objlist.Size = new System.Drawing.Size(120, 21);
             this.objlist.TabIndex = 0;
             // 
             // rm
@@ -85,9 +88,10 @@
             this.rm.AutoScrollMinSize = new System.Drawing.Size(10, 10);
             this.rm.BackColor = System.Drawing.Color.MidnightBlue;
             this.rm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rm.Location = new System.Drawing.Point(200, 0);
+            this.rm.Location = new System.Drawing.Point(140, 0);
+            this.rm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rm.Name = "rm";
-            this.rm.Size = new System.Drawing.Size(587, 497);
+            this.rm.Size = new System.Drawing.Size(385, 313);
             this.rm.TabIndex = 1;
             // 
             // objrclick
@@ -97,19 +101,19 @@
             this.testToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.objrclick.Name = "objrclick";
-            this.objrclick.Size = new System.Drawing.Size(222, 64);
+            this.objrclick.Size = new System.Drawing.Size(170, 64);
             // 
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(221, 30);
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(169, 30);
             this.testToolStripMenuItem.Text = "&Change Position";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Image = global::LGM.Properties.Resources.trash;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(221, 30);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(169, 30);
             this.deleteToolStripMenuItem.Text = "&Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -123,7 +127,7 @@
             this.btnOK});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(787, 32);
+            this.toolStrip1.Size = new System.Drawing.Size(525, 31);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
@@ -131,10 +135,12 @@
             // btnOK
             // 
             this.btnOK.Image = global::LGM.Properties.Resources.ok;
+            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOK.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(94, 29);
+            this.btnOK.Size = new System.Drawing.Size(72, 28);
             this.btnOK.Text = "&Accept";
+            this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // toolStripContainer1
@@ -144,11 +150,13 @@
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.rm);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tabControl1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(787, 497);
+            this.toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(525, 313);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
+            this.toolStripContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(787, 529);
+            this.toolStripContainer1.Size = new System.Drawing.Size(525, 344);
             this.toolStripContainer1.TabIndex = 2;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -158,11 +166,12 @@
             // 
             // Roomeditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 529);
+            this.ClientSize = new System.Drawing.Size(525, 344);
             this.Controls.Add(this.toolStripContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Roomeditor";
             this.Text = "Room Editor";
             this.Load += new System.EventHandler(this.Roomeditor_Load);
