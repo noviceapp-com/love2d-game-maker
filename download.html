@@ -5,16 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="jquery-2.1.3.min.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		
-		$(document).ready(load);
-		
-		function load()
-		{
-			$(mainContent).css({ opacity: 0});
-			$(mainContent).animate({opacity: 1},700);
-		}
-	</script>
+	<script type="text/javascript" src="documentloadeffect.js"></script>
 </head>
 <body>
 	
@@ -32,11 +23,18 @@
 			$(info).css({ height: 0})
 			$(info).animate({height:70},700);
 		</script>
-		<b><br />IMPORTANT</b>: This site is a MAJOR work in progress, and some elements may be in-complete.<br />The images, for example, are temporary.
+		<strong><br />IMPORTANT</strong>: This site is a MAJOR work in progress, and some elements may be in-complete.<br />The images, for example, are temporary.
 	</p>
-	
 	<br />
-	<div id = "mainContent">You can download the latest build <a href = "https://github.com/Radfordhound/love2d-game-maker">here</a>.<br /></div>
+	<div id ="title"><h1>Download</h1></div>
+	<div id = "mainContent">
+		<p>Love Game Maker is free and open-source! Because of this, there are many different ways you can download it.<br />
+		<h1>Binary releases</h1>
+		<br />Latest stable binary releases <a href="https://github.com/Radfordhound/love2d-game-maker/releases" alt="here">here</a>.<br /></p>
+		<h1>Source Code</h1>
+		<p>Latest stable source <a href = "https://github.com/Radfordhound/love2d-game-maker">here</a>.<br /><br />
+		Latest development source <a href="https://github.com/Radfordhound/love2d-game-maker/tree/development">here</a>. (WARNING: May contain in-complete features or bugs!)</p>
+	</div>
 	<!--<div id = "sideContent">Insert Side Content here</div>-->
 </body>
 </html>

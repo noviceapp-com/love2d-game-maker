@@ -88,10 +88,13 @@
 {
 	text-align: center;
 	background-color: #FFFFFF;
-	padding-top:20px;
+	
+	margin-top: 0px;
 	margin-left: 20px;
 	margin-right: 20px;
+	
 	padding-bottom:20px;
+	padding-top: 0px;
 }
 
 #mainContent a
@@ -103,6 +106,14 @@
 #mainContent a:hover
 {
 	color: #0026FF;
+}
+
+#title
+{
+	padding-top:5px;
+	padding-bottom:5px;
+	text-align:center;
+	background-color: #64C9F4;
 }
 
 #sideContent
