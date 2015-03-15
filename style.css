@@ -69,7 +69,7 @@
 	height: 200px;
 	padding-right: 10px;
 	transition:background 1s ease;
-	background: url('images/introbg.png');
+	background: url('images/introbg.png') no-repeat center;
 }
 
 #intro h1

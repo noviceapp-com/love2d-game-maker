@@ -42,5 +42,5 @@ function animateintrobg()
 
 function changeintrobg(newbg)
 {
-	$(intro).css("background", "url('"+newbg+"')");
+	$(intro).css("background", "url('"+newbg+"') no-repeat center");
 }
