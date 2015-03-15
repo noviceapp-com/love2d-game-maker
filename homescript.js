@@ -1,5 +1,6 @@
 //The main-page's javascript animating everything.
 $(document).ready(load);
+introbgid = 0;
 
 function load()
 {	
@@ -17,15 +18,16 @@ function load()
 	
 	setTimeout(fadeinintroh1(), 300);
 	setTimeout(fadeinintrop(), 1300);
-	animateintrobg();
+	
+	$(intro).css({opacity: 0});
+	$(intro).animate({opacity: 1},1000);
+	setTimeout(animateintrobg,4000);
 }
 
 function animateintrobg()
 {
-	$(intro).css({opacity: 0});
-	i = Math.floor(Math.random() * 2);
-	
-	switch (i)
+	if (introbgid < 1){introbgid++;}else{introbgid=0;}
+	switch (introbgid)
 	{
 		case 0:
 			changeintrobg("images/introbg.png");
@@ -34,9 +36,7 @@ function animateintrobg()
 			changeintrobg("images/introbg2.png");
 			break;
 	}
-	
-	$(intro).animate({opacity: 1},1000);
-	//setTimeout(function(){$(info).animate;window.alert("works")},20);
+	setTimeout(animateintrobg,4000);
 	//setTimeout(animateintrobg, 1300);
 }
 

@@ -68,6 +68,8 @@
 	width: screen.width;
 	height: 200px;
 	padding-right: 10px;
+	transition:background 1s ease;
+	background: url('images/introbg.png');
 }
 
 #intro h1
@@ -105,5 +107,4 @@ body
 	text-align: center;
 	color: #FF0000;
 	background-color: #CECECE;
-	transition:background-color 0.5s ease;
 }
