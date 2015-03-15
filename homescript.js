@@ -4,8 +4,8 @@ introbgid = 0;
 
 function load()
 {	
-	$("h1").css({ opacity: 0})
-	$("p.intro").css({ opacity: 0})
+	$("h1").css({ opacity: 0});
+	$("p.intro").css({ opacity: 0});
 	
 	function fadeinintroh1()
 	{

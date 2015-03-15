@@ -94,6 +94,17 @@
 	padding-bottom:20px;
 }
 
+#mainContent a
+{
+	color: #43BBEF;
+	text-decoration: none;
+}
+
+#mainContent a:hover
+{
+	color: #0026FF;
+}
+
 #sideContent
 {
 	background-color: #CECECE;
