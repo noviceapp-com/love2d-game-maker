@@ -1,11 +1,14 @@
 //The main-page's javascript animating everything.
 $(document).ready(load);
 introbgid = 0;
+animatingintro = false;
 
 function load()
 {	
 	$("h1").css({ opacity: 0});
 	$("p.intro").css({ opacity: 0});
+	$(".dot").click(changedot);
+	$(".selecteddot").click(changedot);
 	
 	function fadeinintroh1()
 	{
@@ -24,23 +27,52 @@ function load()
 	setTimeout(animateintrobg,4000);
 }
 
-function animateintrobg()
+function animateintrobg(dontadd)
 {
-	if (introbgid < 1){introbgid++;}else{introbgid=0;}
-	switch (introbgid)
+	if (!animatingintro)
 	{
-		case 0:
-			changeintrobg("images/introbg.png");
-			break;
-		case 1:
-			changeintrobg("images/introbg2.png");
-			break;
+		animatingintro = true;
+		if ((!dontadd || dontadd == undefined || dontadd == null) && introbgid < 1){console.log('adding');introbgid++;}else if(!dontadd){console.log('adding2');introbgid=0;}
+		switch (introbgid)
+		{
+			case 0:
+				changeintrobg("images/introbg.png");
+				break;
+			case 1:
+				changeintrobg("images/introbg2.png");
+				break;
+		}
+		animatingintro = false;
+		if (!dontadd)
+		{
+			setTimeout(animateintrobg,4000);
+			
+			$(".selecteddot").toggleClass("dot");
+			$(".selecteddot").attr("src","images/dot.png");
+			$(".selecteddot").removeClass("selecteddot");
+			$("#"+(introbgid+1)).removeClass("dot");
+			$("#"+(introbgid+1)).toggleClass( "selecteddot" );
+			$("#"+(introbgid+1)).attr("src","images/dotsel.png");
+		}
 	}
-	setTimeout(animateintrobg,4000);
-	//setTimeout(animateintrobg, 1300);
 }
 
 function changeintrobg(newbg)
 {
 	$(intro).css("background", "url('"+newbg+"') no-repeat center");
+}
+
+function changedot()
+{
+	$(".selecteddot").toggleClass("dot");
+	newsrc="images/dot.png";
+	$(".selecteddot").attr("src",newsrc);
+	$(".selecteddot").removeClass("selecteddot");
+	
+	$(this).removeClass("dot");
+	$(this).toggleClass( "selecteddot" );
+	this.src = "images/dotsel.png";
+	
+	introbgid = this.id-1;
+	animateintrobg(true);
 }

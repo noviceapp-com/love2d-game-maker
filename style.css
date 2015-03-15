@@ -84,6 +84,16 @@
 	color: #FFFFFF;
 }
 
+#dot
+{
+	transition: all 1s linear;
+}
+
+#selecteddot
+{
+	transition: all 1s linear;
+}
+
 #mainContent
 {
 	text-align: center;
