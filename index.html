@@ -3,20 +3,34 @@
 <head>
 	<title>Love2D Game Maker</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="jquery-1.11.2.min.js"></script>
+	<script type = "text/javascript" src = "homescript.js"></script>
 </head>
 <body>
-	<div id="logo"><img src="images\logonavbar.png" width="240" height="135"/></div>
+	
 	<div id="navBar">
 	<ul>
-		<a id="navbarlink" href = "index.html"><li class="selected">Home</li></a>
-		<a id="navbarlink" href = "download.html"><li>Download</li></a>
+		<li id="logo" class="logo"><a href="index.html" title="Home"><img src="images\logonavbar.png" width="120" height="68"/></a></li>
+		<a id="navbarlink" href = "index.html" alt="Home"><li class="selected">Home</li></a>
+		<a id="navbarlink" href = "download.html" alt="Download"><li>Download</li></a>
 	</ul>
 	</div>
 	
 	<br />
+	<p id="info">
+		<script type="text/javascript">
+			$(info).css({ height: 0})
+			$(info).animate({height:50},700);
+		</script>
+		<b><br />IMPORTANT: This site is a MAJOR work in progress, and some elements may be in-complete.</b><br /><br />
+	</p>
 	
-	<div id="mainContent"><p>Yeah... this is a work in progress.<p>
-		<p>Love Game Maker is a development tool designed for easy creation of games using the LÖVE 2D open-source game engine. Based off of Game Maker by Mark Overmans<br /></p>
+	<div id="intro">
+		<h1>What's Love Game Maker?</h1>
+		<p class="intro">Love Game Maker is a development tool designed for easy creation of games using the LÖVE 2D open-source game engine. Based off of Game Maker by Mark Overmans</p><br/>
 	</div>
+	<br />
+	<div id = "mainContent">--Inset Main Content here--<br /></div>
+	<!--<div id = "sideContent">Insert Side Content here</div>-->
 </body>
 </html>
