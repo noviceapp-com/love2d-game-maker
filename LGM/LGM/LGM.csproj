@@ -66,9 +66,6 @@
     <Compile Include="AddEvent.Designer.cs">
       <DependentUpon>AddEvent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Button.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="CustomMessageBox.cs" />
     <Compile Include="GeneratedCode.cs" />
     <Compile Include="Main.cs">
@@ -84,7 +81,6 @@
     <Compile Include="MessageForm.Designer.cs">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NativeMethods.cs" />
     <Compile Include="Objecteditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,9 +117,6 @@
     </Compile>
     <Compile Include="Spriteeditor.Designer.cs">
       <DependentUpon>Spriteeditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TreeView.cs">
-      <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="AddAction.resx">
       <DependentUpon>AddAction.cs</DependentUpon>
@@ -260,6 +253,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WindowsFormsAero\WindowsFormsAero.csproj">
+      <Project>{058f123e-d366-4023-94ef-e4af8ec5d101}</Project>
+      <Name>WindowsFormsAero</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

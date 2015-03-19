@@ -85,7 +85,7 @@ namespace LGM
                     // Set the BackColor of the MdiClient control.
                     ctlMDI.BackColor = Color.FromArgb(144, 212, 242);
                 }
-                catch (InvalidCastException exc)
+                catch
                 {
                     // Catch and ignore the error if casting failed.
                 }
@@ -369,6 +369,12 @@ namespace LGM
         #region Functions currently used for debugging
         private void TestGame()
         {
+            //Ensure there's at least one room in the current project before compiling
+            bool cont = false;
+            
+            foreach (Resources.Room rm in Resources.resources){ cont = true; break; }
+            if (!cont) { System.Media.SystemSounds.Asterisk.Play(); CustomMessageBox.Show("You need at least one room in your project to compile!", "Love Game Maker", CustomMessageBox.eDialogButtons.OK, warning); return; }
+
             //Test the game using LOVE 2D
             if (Directory.Exists(Application.StartupPath+"\\temp"))
             {
@@ -376,7 +382,7 @@ namespace LGM
                 {
                     Directory.Delete(Application.StartupPath+"\\temp",true);
                 }
-                catch (Exception ex)
+                catch
                 {
                     //Error(1);
                 }

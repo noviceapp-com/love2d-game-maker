@@ -25,10 +25,7 @@ namespace LGM
 
         public class Types
         {
-            public Types()
-            {
-                //
-            }
+            public Types(){}
             public string data = "";
             public string name = "Untitled Resource";
             public bool isbeingedited = false;
@@ -39,10 +36,7 @@ namespace LGM
             public List<Image> sprites = new List<Image>(); //The sprite's images
             public Point origin = new Point(0,0); //The sprite's origin.
 
-            public Sprite()
-            {
-                //
-            }
+            public Sprite(){}
         }
 
         public class Object:Types
@@ -54,18 +48,12 @@ namespace LGM
 
         public class Background:Types
         {
-            public Background()
-            {
-                //
-            }
+            public Background(){}
         }
 
         public class Sound : Types
         {
-            public Sound()
-            {
-                //
-            }
+            public Sound(){}
         }
 
         public class Room : Types
@@ -73,17 +61,11 @@ namespace LGM
             public List<Point> objpos = new List<Point>();
             public List<int> objid = new List<int>();
 
-            public Room()
-            {
-                //
-            }
+            public Room(){}
         }
         public class Script : Types
         {
-            public Script()
-            {
-                //
-            }
+            public Script(){}
         }
     }
 }

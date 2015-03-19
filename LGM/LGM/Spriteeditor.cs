@@ -241,7 +241,7 @@ namespace LGM
                     System.IO.Directory.Delete(Application.StartupPath + "\\temp", true);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 //
             }

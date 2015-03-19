@@ -11,7 +11,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace LGM
+namespace WindowsFormsAero
 {
     /// <summary>
     /// Control style and notification constants

@@ -1,0 +1,11 @@
+C:\Users\Graha_000\Downloads\random\WindowsFormsAero\bin\Debug NET40\WindowsFormsAero.dll
+C:\Users\Graha_000\Downloads\random\WindowsFormsAero\bin\Debug NET40\WindowsFormsAero.pdb
+C:\Users\Graha_000\Downloads\random\WindowsFormsAero\bin\Debug NET40\WindowsFormsAero.xml
+C:\Users\Graha_000\Downloads\random\WindowsFormsAero\obj\Debug NET40\WindowsFormsAero.csprojResolveAssemblyReference.cache
+C:\Users\Graha_000\Downloads\random\WindowsFormsAero\obj\Debug NET40\WindowsFormsAero.Resources.ExceptionMessages.resources
+C:\Users\Graha_000\Downloads\random\WindowsFormsAero\obj\Debug NET40\WindowsFormsAero.Resources.Pictures.resources
+C:\Users\Graha_000\Downloads\random\WindowsFormsAero\obj\Debug NET40\WindowsFormsAero.SearchTextBox.resources
+C:\Users\Graha_000\Downloads\random\WindowsFormsAero\obj\Debug NET40\WindowsFormsAero.csproj.GenerateResource.Cache
+C:\Users\Graha_000\Downloads\random\WindowsFormsAero\obj\Debug NET40\WindowsFormsAero.dll
+C:\Users\Graha_000\Downloads\random\WindowsFormsAero\obj\Debug NET40\WindowsFormsAero.pdb
+C:\Users\Graha_000\Downloads\random\WindowsFormsAero\obj\Debug NET40\WindowsFormsAero.AeroForm.resources

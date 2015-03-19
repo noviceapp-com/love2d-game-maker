@@ -24,7 +24,7 @@ The LÖVE 2D engine, which is included with this project, is under the license de
 
 The Middleclass library, which is included with this project, is under the license detailed in the MIT-LICENSE.txt file within the "libraries" folder.
 
-The NativeMethods.cs, TreeView.cs, and Button.cs files are part of the Windows Forms Aero Project (At http://windowsformsaero.codeplex.com/), and are under the license detailed in the windowsformaerolicense.txt file within the licenses folder.
+Everything in the "WindowsFormsAero" folder is part of the Windows Forms Aero Project (At http://windowsformsaero.codeplex.com/), and are under the license detailed in the windowsformaerolicense.txt file within the licenses folder.
 (I think? The project was un-clear as to wether it was under the Microsoft Reciprocal License (Ms-RL) or the Microsoft Community License (Ms-CL). So, if I'm doing something incorrectly, please let me know so I can fix it right away!)
 
 

@@ -218,7 +218,7 @@ namespace LGM
                     pictureBox1.Image = missingimg;
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 pictureBox1.Image = missingimg;
             }

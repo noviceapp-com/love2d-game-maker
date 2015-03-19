@@ -23,7 +23,7 @@ namespace LGM
                 {
                     File.WriteAllText(Application.StartupPath+"\\settings.cfg","0 ALPHA " + Application.ProductVersion + Environment.NewLine + "1 " + Application.StartupPath + "\\love2d");
                 }
-                catch (Exception ex)
+                catch
                 {
                     System.Media.SystemSounds.Hand.Play();
                     Main.Error(2,"The settings.cfg file could not be created! Please try re-starting the" + Environment.NewLine + "program as an administrator.");
@@ -73,7 +73,7 @@ namespace LGM
             {
                 File.WriteAllText(Application.StartupPath + "\\settings.cfg", "0 ALPHA " + Application.ProductVersion + Environment.NewLine + "1 " + love2dpath);
             }
-            catch (Exception ex)
+            catch
             {
                 System.Media.SystemSounds.Hand.Play();
                 Main.Error(2, "The settings.cfg file could not be created! Please try re-starting the" + Environment.NewLine + "program as an administrator.");

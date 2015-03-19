@@ -99,7 +99,7 @@
             this.scriptbtn = new System.Windows.Forms.ToolStripButton();
             this.helpbtn = new System.Windows.Forms.ToolStripButton();
             this.sizeableTreeView1 = new SizeableTreeView();
-            this.resourcelist = new LGM.AeroTreeView();
+            this.resourcelist = new WindowsFormsAero.TreeView();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
@@ -826,7 +826,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton helpbtn;
         private System.Windows.Forms.ToolStrip toolStrip;
-        private AeroTreeView resourcelist;
+        private WindowsFormsAero.TreeView resourcelist;
     }
 }
 

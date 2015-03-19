@@ -1,6 +1,6 @@
 /*
 * VISTA CONTROLS FOR .NET 2.0
-* ENHANCED BUTTON
+* COMMAND LINK
 * 
 * Written by Marco Minerva, mailto:marco.minerva@gmail.com
 * 
@@ -15,20 +15,36 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace LGM
+namespace WindowsFormsAero
 {
     [ToolboxBitmap(typeof(Button))]
-    public class AeroButton : System.Windows.Forms.Button
+    public class CommandLink: System.Windows.Forms.Button
     {
-        public AeroButton()
+        public CommandLink()
         {
             this.FlatStyle = FlatStyle.System;
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+
+                //Fix for XP provided by jonpreece (http://windowsformsaero.codeplex.com/Thread/View.aspx?ThreadId=81391)
+                if (OsSupport.IsVistaOrBetter)
+                    cp.Style |= NativeMethods.BS_COMMANDLINK;
+                else
+                    cp.Style |= 1;
+                return cp;
+            }
+        }
+
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
-        private Boolean useicon = true; //Checks if user wants to use an icon instead of a bitmap
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
+        private bool useicon = true; //Checks if user wants to use an icon instead of a bitmap
         private Bitmap image_;
+        
         //Image alignment is ignored at the moment. Property overrides inherited image property
         //Supports images other than bitmap, supports transparency on .NET 2.0
         [Description("Gets or sets the image that is displayed on a button control."), Category("Appearance"), DefaultValue(null)]
@@ -50,6 +66,7 @@ namespace LGM
                 SetImage();
             }
         }
+
         private Icon icon_;
         [Description("Gets or sets the icon that is displayed on a button control."), Category("Appearance"), DefaultValue(null)]
         public Icon Icon
@@ -63,7 +80,7 @@ namespace LGM
                 icon_ = value;
                 if (icon_ != null)
                 {
-                this.useicon = true;
+                    this.useicon = true;
                 }
                 this.SetShield(false);
                 SetImage();
@@ -91,9 +108,10 @@ namespace LGM
             //Set the button to use the icon. If no icon or bitmap is used, no image is set.
             SendMessage(this.Handle, NativeMethods.BM_SETIMAGE, 1, (int)iconhandle);
         }
-        private Boolean showshield_ = false;
+
+        private bool showshield_ = false;
         [Description("Gets or sets whether if the control should use an elevated shield icon."), Category("Appearance"), DefaultValue(false)]
-        public Boolean ShowShield
+        public bool ShowShield
         {
             get
             {
@@ -105,13 +123,38 @@ namespace LGM
                 this.SetShield(value);
                 if (!value)
                 {
-                this.SetImage();
+                    this.SetImage();
                 }
             }
         }
-        public void SetShield(Boolean Value)
+
+        public void SetShield(bool Value)
         {
             NativeMethods.SendMessage(this.Handle, NativeMethods.BCM_SETSHIELD, IntPtr.Zero, new IntPtr(showshield_ ? 1 : 0));
         }
+
+        private string note_ = string.Empty;
+
+		[Description("Gets or sets the note that is displayed on a button control."), Category("Appearance"), DefaultValue("")]
+        public string Note
+        {
+            get
+            {
+                return this.note_;
+            }
+            set
+            {
+                this.note_ = value;
+                this.SetNote(this.note_);
+            }
+        }
+
+        [Description("Sets the note displayed on the button.")]
+        private void SetNote(string NoteText)
+        {
+            //Sets the note
+            NativeMethods.SendMessage(this.Handle, NativeMethods.BCM_SETNOTE, IntPtr.Zero, NoteText);
+        }
+
     }
 }

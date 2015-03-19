@@ -14,10 +14,10 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace LGM {
+namespace WindowsFormsAero {
 	[ToolboxBitmap(typeof(TreeView))]
-	public class AeroTreeView : System.Windows.Forms.TreeView {
-		public AeroTreeView() {
+	public class TreeView : System.Windows.Forms.TreeView {
+		public TreeView() {
 			base.HotTracking = true;
 			base.ShowLines = false;
 		}
