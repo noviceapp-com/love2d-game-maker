@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DPI.cs" />
+    <Compile Include="Main.cs" />
     <Compile Include="MainFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,7 +69,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -83,6 +90,51 @@
       <Project>{058F123E-D366-4023-94EF-E4AF8EC5D101}</Project>
       <Name>WindowsFormsAero</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\build.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\181 FormOval.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sounds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\script.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newdoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\object.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
