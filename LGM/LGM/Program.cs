@@ -16,7 +16,7 @@ namespace LGM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new S());
+            Application.Run(new MainFrm());
         }
     }
 }

@@ -9,4 +9,4 @@ C:\Users\Graha_000\Documents\Love Game Maker\LGMgithub\love2d-game-maker\LGM\LGM
 C:\Users\Graha_000\Documents\Love Game Maker\LGMgithub\love2d-game-maker\LGM\LGM\bin\Debug\WindowsFormsAero.dll
 C:\Users\Graha_000\Documents\Love Game Maker\LGMgithub\love2d-game-maker\LGM\LGM\bin\Debug\WindowsFormsAero.pdb
 C:\Users\Graha_000\Documents\Love Game Maker\LGMgithub\love2d-game-maker\LGM\LGM\bin\Debug\WindowsFormsAero.xml
-C:\Users\Graha_000\Documents\Love Game Maker\LGMgithub\love2d-game-maker\LGM\LGM\obj\Debug\LGM.S.resources
+C:\Users\Graha_000\Documents\Love Game Maker\LGMgithub\love2d-game-maker\LGM\LGM\obj\Debug\LGM.MainFrm.resources

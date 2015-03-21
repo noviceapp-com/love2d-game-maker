@@ -1,6 +1,6 @@
 ﻿namespace LGM
 {
-    partial class S
+    partial class MainFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Sounds");
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Scripts");
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Rooms");
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(S));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrm));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.mainpnl = new System.Windows.Forms.Panel();
             this.rswindows = new System.Windows.Forms.TabControl();
@@ -54,6 +54,12 @@
             this.buildmi = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.editmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.undomi = new System.Windows.Forms.ToolStripMenuItem();
+            this.redomi = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.cutmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.copymi = new System.Windows.Forms.ToolStripMenuItem();
             this.maintoolbar = new System.Windows.Forms.ToolStrip();
             this.newbtn = new System.Windows.Forms.ToolStripButton();
             this.openbtn = new System.Windows.Forms.ToolStripButton();
@@ -71,6 +77,24 @@
             this.roombtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.helpbtn = new System.Windows.Forms.ToolStripButton();
+            this.pastemi = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.selectallmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.renamersmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletersmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewtoolbarmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewstatusBarmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewresourceListmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.advancedmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.editgcmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.contentshlpmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutLGMmi = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -201,7 +225,11 @@
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.filemi});
+            this.filemi,
+            this.editmi,
+            this.viewmi,
+            this.toolsmi,
+            this.helpmi});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
@@ -291,6 +319,52 @@
             this.exitmi.Text = "E&xit";
             this.exitmi.Click += new System.EventHandler(this.exitmi_Click);
             // 
+            // editmi
+            // 
+            this.editmi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.undomi,
+            this.redomi,
+            this.toolStripSeparator7,
+            this.cutmi,
+            this.copymi,
+            this.pastemi,
+            this.toolStripSeparator8,
+            this.selectallmi,
+            this.renamersmi,
+            this.deletersmi});
+            this.editmi.Name = "editmi";
+            this.editmi.Size = new System.Drawing.Size(54, 29);
+            this.editmi.Text = "&Edit";
+            // 
+            // undomi
+            // 
+            this.undomi.Name = "undomi";
+            this.undomi.Size = new System.Drawing.Size(225, 30);
+            this.undomi.Text = "&Undo";
+            // 
+            // redomi
+            // 
+            this.redomi.Name = "redomi";
+            this.redomi.Size = new System.Drawing.Size(225, 30);
+            this.redomi.Text = "&Redo";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(222, 6);
+            // 
+            // cutmi
+            // 
+            this.cutmi.Name = "cutmi";
+            this.cutmi.Size = new System.Drawing.Size(225, 30);
+            this.cutmi.Text = "Cu&t";
+            // 
+            // copymi
+            // 
+            this.copymi.Name = "copymi";
+            this.copymi.Size = new System.Drawing.Size(225, 30);
+            this.copymi.Text = "&Copy";
+            // 
             // maintoolbar
             // 
             this.maintoolbar.BackColor = System.Drawing.Color.White;
@@ -318,7 +392,7 @@
             this.maintoolbar.Name = "maintoolbar";
             this.maintoolbar.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.maintoolbar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.maintoolbar.Size = new System.Drawing.Size(390, 31);
+            this.maintoolbar.Size = new System.Drawing.Size(344, 31);
             this.maintoolbar.TabIndex = 1;
             // 
             // newbtn
@@ -470,7 +544,136 @@
             this.helpbtn.Size = new System.Drawing.Size(24, 24);
             this.helpbtn.Text = "Help...";
             // 
-            // S
+            // pastemi
+            // 
+            this.pastemi.Name = "pastemi";
+            this.pastemi.Size = new System.Drawing.Size(225, 30);
+            this.pastemi.Text = "&Paste";
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(222, 6);
+            // 
+            // selectallmi
+            // 
+            this.selectallmi.Name = "selectallmi";
+            this.selectallmi.Size = new System.Drawing.Size(225, 30);
+            this.selectallmi.Text = "Select &All";
+            // 
+            // renamersmi
+            // 
+            this.renamersmi.Name = "renamersmi";
+            this.renamersmi.Size = new System.Drawing.Size(225, 30);
+            this.renamersmi.Text = "Re&name Resource";
+            // 
+            // deletersmi
+            // 
+            this.deletersmi.Name = "deletersmi";
+            this.deletersmi.Size = new System.Drawing.Size(225, 30);
+            this.deletersmi.Text = "&Delete Resource";
+            // 
+            // viewmi
+            // 
+            this.viewmi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewtoolbarmi,
+            this.viewstatusBarmi,
+            this.viewresourceListmi});
+            this.viewmi.Name = "viewmi";
+            this.viewmi.Size = new System.Drawing.Size(61, 29);
+            this.viewmi.Text = "&View";
+            // 
+            // viewtoolbarmi
+            // 
+            this.viewtoolbarmi.Checked = true;
+            this.viewtoolbarmi.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.viewtoolbarmi.Name = "viewtoolbarmi";
+            this.viewtoolbarmi.Size = new System.Drawing.Size(198, 30);
+            this.viewtoolbarmi.Text = "&Toolbar";
+            this.viewtoolbarmi.Click += new System.EventHandler(this.viewtoolbarmi_Click);
+            // 
+            // viewstatusBarmi
+            // 
+            this.viewstatusBarmi.Checked = true;
+            this.viewstatusBarmi.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.viewstatusBarmi.Name = "viewstatusBarmi";
+            this.viewstatusBarmi.Size = new System.Drawing.Size(198, 30);
+            this.viewstatusBarmi.Text = "&Status Bar";
+            // 
+            // viewresourceListmi
+            // 
+            this.viewresourceListmi.Checked = true;
+            this.viewresourceListmi.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.viewresourceListmi.Name = "viewresourceListmi";
+            this.viewresourceListmi.Size = new System.Drawing.Size(198, 30);
+            this.viewresourceListmi.Text = "&Resource List";
+            this.viewresourceListmi.Click += new System.EventHandler(this.viewresourceListmi_Click);
+            // 
+            // toolsmi
+            // 
+            this.toolsmi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsmi,
+            this.toolStripSeparator9,
+            this.advancedmi});
+            this.toolsmi.Name = "toolsmi";
+            this.toolsmi.Size = new System.Drawing.Size(67, 29);
+            this.toolsmi.Text = "&Tools";
+            // 
+            // settingsmi
+            // 
+            this.settingsmi.AutoSize = false;
+            this.settingsmi.Image = global::LGM.Properties.Resources.settings1;
+            this.settingsmi.Name = "settingsmi";
+            this.settingsmi.Size = new System.Drawing.Size(206, 30);
+            this.settingsmi.Text = "&Settings";
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(203, 6);
+            // 
+            // advancedmi
+            // 
+            this.advancedmi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editgcmi});
+            this.advancedmi.Name = "advancedmi";
+            this.advancedmi.Size = new System.Drawing.Size(206, 30);
+            this.advancedmi.Text = "&Advanced";
+            // 
+            // editgcmi
+            // 
+            this.editgcmi.Name = "editgcmi";
+            this.editgcmi.Size = new System.Drawing.Size(247, 30);
+            this.editgcmi.Text = "&Edit Generated Code";
+            // 
+            // helpmi
+            // 
+            this.helpmi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contentshlpmi,
+            this.toolStripSeparator10,
+            this.aboutLGMmi});
+            this.helpmi.Name = "helpmi";
+            this.helpmi.Size = new System.Drawing.Size(61, 29);
+            this.helpmi.Text = "&Help";
+            // 
+            // contentshlpmi
+            // 
+            this.contentshlpmi.Name = "contentshlpmi";
+            this.contentshlpmi.Size = new System.Drawing.Size(198, 30);
+            this.contentshlpmi.Text = "&Contents";
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(195, 6);
+            // 
+            // aboutLGMmi
+            // 
+            this.aboutLGMmi.Name = "aboutLGMmi";
+            this.aboutLGMmi.Size = new System.Drawing.Size(198, 30);
+            this.aboutLGMmi.Text = "&About LGM";
+            // 
+            // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -480,7 +683,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(800, 600);
-            this.Name = "S";
+            this.Name = "MainFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Untitled - Love Game Maker";
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
@@ -537,6 +740,30 @@
         private System.Windows.Forms.ToolStripButton roombtn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton helpbtn;
+        private System.Windows.Forms.ToolStripMenuItem editmi;
+        private System.Windows.Forms.ToolStripMenuItem undomi;
+        private System.Windows.Forms.ToolStripMenuItem redomi;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem cutmi;
+        private System.Windows.Forms.ToolStripMenuItem copymi;
+        private System.Windows.Forms.ToolStripMenuItem pastemi;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem selectallmi;
+        private System.Windows.Forms.ToolStripMenuItem renamersmi;
+        private System.Windows.Forms.ToolStripMenuItem deletersmi;
+        private System.Windows.Forms.ToolStripMenuItem viewmi;
+        private System.Windows.Forms.ToolStripMenuItem viewtoolbarmi;
+        private System.Windows.Forms.ToolStripMenuItem viewstatusBarmi;
+        private System.Windows.Forms.ToolStripMenuItem viewresourceListmi;
+        private System.Windows.Forms.ToolStripMenuItem toolsmi;
+        private System.Windows.Forms.ToolStripMenuItem settingsmi;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem advancedmi;
+        private System.Windows.Forms.ToolStripMenuItem editgcmi;
+        private System.Windows.Forms.ToolStripMenuItem helpmi;
+        private System.Windows.Forms.ToolStripMenuItem contentshlpmi;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripMenuItem aboutLGMmi;
     }
 }
 

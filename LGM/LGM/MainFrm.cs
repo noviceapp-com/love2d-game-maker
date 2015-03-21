@@ -11,23 +11,14 @@ using System.Windows.Forms;
 
 namespace LGM
 {
-    public partial class S : Form
+    public partial class MainFrm : Form
     {
-        public S()
+        public MainFrm()
         {
             InitializeComponent();
             maintoolbar.Renderer = new MyToolStripSystemRenderer();
 
             CorrectDPI();
-        }
-
-        private void btnrslist_Click(object sender, EventArgs e)
-        {
-            /* Change button's arrow from ">" to "<" and vice versa depending on
-               if the resource list is shown or not.*/
-
-            rslistpnl.Visible = (btnrslist.Text == ">");
-            if (btnrslist.Text == "<") { btnrslist.Text = ">"; } else { btnrslist.Text = "<"; }
         }
 
         public class MyToolStripSystemRenderer : ToolStripSystemRenderer
@@ -74,6 +65,15 @@ namespace LGM
         }
 
         #region Control-related functions
+        private void btnrslist_Click(object sender, EventArgs e)
+        {
+            /* Change button's arrow from ">" to "<" and vice versa depending on
+               if the resource list is shown or not.*/
+
+            rslistpnl.Visible = (btnrslist.Text == ">");
+            if (btnrslist.Text == "<") { btnrslist.Text = ">"; } else { btnrslist.Text = "<"; }
+        }
+
         private void newmi_Click(object sender, EventArgs e)
         {
             //New Document
@@ -113,6 +113,22 @@ namespace LGM
         {
             //
         }
+        
+        private void viewtoolbarmi_Click(object sender, EventArgs e)
+        {
+            viewtoolbarmi.Checked = !viewtoolbarmi.Checked;
+            maintoolbar.Visible = viewtoolbarmi.Checked;
+        }
+
+        private void viewresourceListmi_Click(object sender, EventArgs e)
+        {
+            viewresourceListmi.Checked = !viewresourceListmi.Checked;
+            rslistpnl.Visible = viewresourceListmi.Checked;
+
+            if (btnrslist.Text == "<") { btnrslist.Text = ">"; } else { btnrslist.Text = "<"; }
+        }
         #endregion
+
+        
     }
 }
