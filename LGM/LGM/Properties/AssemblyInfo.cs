@@ -1,17 +1,16 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Resources;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Love Game Maker")]
-[assembly: AssemblyDescription("Love Game Maker is a development tool designed for easy creation of games using the LÖVE 2D open-source game engine based off of 'Game Maker' by Mark Overmans.")]
+[assembly: AssemblyTitle("LGM")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Love Game Maker")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyProduct("LGM")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -21,7 +20,7 @@ using System.Resources;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("81df515f-a2e7-4dfd-af9c-24c8a4489e42")]
+[assembly: Guid("c2b14a10-2802-45b4-b775-842448b7bb3b")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,5 +33,4 @@ using System.Resources;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("0.8.8.0")]
-[assembly: NeutralResourcesLanguageAttribute("")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

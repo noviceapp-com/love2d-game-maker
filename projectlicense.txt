@@ -1,5 +1,6 @@
 This file details the official legal license for this project as well as it's assets.
 It is currently in the process of being written, as we want to spend time to create a license that works for our needs. Allowing users to freely create/modify the code as well as restricting them from selling it/claiming what they didn't do was their's.
+Any help would be vastly appretciated. Thank you.
 
 The current version of this license is as follows.
 

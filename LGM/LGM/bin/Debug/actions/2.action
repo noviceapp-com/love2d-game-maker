@@ -1,2 +1,0 @@
-~~/\ACTION/\~~ Set Variable ~icon~ 0 ~cat~ 1 ~arg~ 0 ~arg~ 0 ~appliesto~ 1
-	self.{0} = {1}
