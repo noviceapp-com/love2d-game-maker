@@ -1,12 +1,7 @@
 -----------------------------------------------------------------------------
--- Name:        minimal.wx.lua
--- Purpose:     'Minimal' wxLua sample
--- Author:      J Winwood
--- Modified by:
--- Created:     16/11/2001
--- RCS-ID:      $Id: veryminimal.wx.lua,v 1.7 2008/01/22 04:45:39 jrl1 Exp $
--- Copyright:   (c) 2001 J Winwood. All rights reserved.
--- Licence:     wxWidgets licence
+--Love Game Maker
+--An easy-to-use tool for developing games using the marvelous LOVE2D framework!
+--NOTE: Currently under HEAVY DEVELOPMENT!
 -----------------------------------------------------------------------------
 
 -- Load the wxLua module, does nothing if running from wxLua, wxLuaFreeze, or wxLuaEdit
@@ -18,9 +13,26 @@ frame = nil
 function main()
 
     -- create the frame windows
-    frame = wx.wxFrame( wx.NULL, wx.wxID_ANY, "wxLua Very Minimal Demo",
+    frame = wx.wxFrame( wx.NULL, 1, "Untitled - Love Game Maker",
                         wx.wxDefaultPosition, wx.wxSize(450, 450),
                         wx.wxDEFAULT_FRAME_STYLE )
+    
+    local buttonSizer = wx.wxBoxSizer( wx.wxHORIZONTAL )
+    treeCtrl = wx.wxTreeCtrl(frame,2,wx.wxPoint(0,0))
+    buttonSizer:Add(treeCtrl)
+    --pnl = wx.wxPanel(frame, 1);
+
+    local rootnd = treeCtrl:AddRoot("Untitled Project")
+
+    local spritend = treeCtrl:AppendItem(rootnd, "Sprites", 0, 1)
+    local objectnd = treeCtrl:AppendItem(rootnd, "Objects", 0, 1)
+    local bgnd = treeCtrl:AppendItem(rootnd, "Backgrounds", 0, 1)
+    local soundnd = treeCtrl:AppendItem(rootnd, "Sounds", 0, 1)
+    local scriptnd = treeCtrl:AppendItem(rootnd, "Scripts", 0, 1)
+    local roomnd = treeCtrl:AppendItem(rootnd, "Rooms", 0, 1)
+    treeCtrl:AppendItem(spritend, "Sprite 0", 0, 1)
+
+    treeCtrl:Expand(rootnd)
 
     -- show the frame window
     frame:Show(true)
