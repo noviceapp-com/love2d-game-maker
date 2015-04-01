@@ -2,6 +2,25 @@
 
 A development tool designed for easy creation of games using the LÖVE 2D open-source game engine. Based off of Game Maker by Mark Overmans.
 
+##Overview
+
+- [What's Love?!?](#whats-love)
+- [What's Love Game Maker?](#whats-love-game-maker)
+- [But... why? :S](#but-why-s)
+- [Wow! Sounds great! Is there any way I can help?](#wow-sounds-great-is-there-any-way-i-can-help)
+	- [Can you code in C#?](#can-you-code-in-c)
+	- [Can you draw?](#can-you-draw)
+	- [Can you Make nice music/sound effects?](#can-you-make-nice-musicsound-effects)
+	- [Are you good at writing?](#are-you-good-at-writing)
+	- [Are you good at legal gobbly-gook?](#are-you-good-at-legal-gobbly-gook)
+	- [Are you good at designing things?](#are-you-good-at-designing-things)
+	- [Are you good at web development? Such as HTML/Javascript/PHP?](#are-you-good-at-web-development-such-as-htmljavascriptphp)
+	- [Can you beta-test software?](#can-you-beta-test-software)
+	- [Do you have anything else you can contribute?](#do-you-have-anything-else-you-can-contribute)
+- [What's the license for the project?](#whats-the-license-for-the-project)
+- [This part of the readme/Project is broken/unfinished!](#this-part-of-the-readmeproject-is-brokenunfinished)
+- [I've got a question that wasn't answered in this readme or would like to contact you personally.](#ive-got-a-question-that-wasnt-answered-in-this-readme-or-would-like-to-contact-you-personally)
+
 ##What's Love?!?
 
 What's Love? You've never loved someone? You must have a sad life...
