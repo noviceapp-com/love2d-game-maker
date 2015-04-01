@@ -8,7 +8,7 @@ A development tool designed for easy creation of games using the LÖVE 2D open-s
 - [What's Love Game Maker?](#whats-love-game-maker)
 - [But... why? :S](#but-why-s)
 - [Wow! Sounds great! Is there any way I can help?](#wow-sounds-great-is-there-any-way-i-can-help)
-	- [Can you code in C#?](#can-you-code-in-c)
+	- [Can you code in Lua?](#can-you-code-in-lua)
 	- [Can you draw?](#can-you-draw)
 	- [Can you Make nice music/sound effects?](#can-you-make-nice-musicsound-effects)
 	- [Are you good at writing?](#are-you-good-at-writing)
