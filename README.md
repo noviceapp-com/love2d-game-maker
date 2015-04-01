@@ -153,7 +153,7 @@ Definitely! While I'm confident in my skills to pull something like this off, I 
 
 Here's a quick guide on what YOU can do to help out depending on your skills.
 
-###Can you code in C#?
+###Can you code in Lua?
 
 Awesome! Go ahead and fork the project's source. Then you can clone your fork and make whatever changes you please! After that you just submit merge/pull requests for whatever files you modified/added, and if I see that the changes are for the better (Which I will 80% of the time.), I'll accept your request and your code will be added to the official project! Basically, yeah. It's code. On GitHub. You know the drill. ;)
 
