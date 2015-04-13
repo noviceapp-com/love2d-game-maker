@@ -96,7 +96,7 @@ You're probably thinking this is just an 'excerpt' of the complete code, or some
 
 LÖVE 2D uses a just-in-time compiler known as 'luajit', which, in many ways, is similar to Java (Such as the fact that it supports multiple platforms.). Unlike Java, however, is the fact that code runs surprisingly fast in LÖVE 2D, to the point where there's hardly even a noticeable difference in the speed at which your code runs in LÖVE 2D vs. a compiled game engine!
 
-Best of all, though, is the fact that it's multi-platform and has a great community! While it's currently limited to only Windows, Mac OSX 10.6+, and Linux, the community is very active and has used the source for the engine to port it to various other platforms, such as [Android](https://love2d.org/forums/viewtopic.php?f=11&t=79682) and [iOS](https://love2d.org/forums/viewtopic.php?f=12&t=76985).
+Best of all, though, is the fact that it's multi-platform and has a great community! While it's currently limited to only Windows, Mac OSX 10.6+, and Linux, the community is very active and has used the source for the engine to port it to various other platforms, such as [Android](https://love2d.org/forums/viewtopic.php?f=11&t=76979) and [iOS](https://love2d.org/forums/viewtopic.php?f=12&t=76985).
 
 ##What's Love Game Maker?
 
