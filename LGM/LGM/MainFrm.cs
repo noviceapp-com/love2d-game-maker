@@ -9,10 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*WARNING!!!
+ * THE FOLLOWING CODE WAS MADE AS QUICKLY AS POSSIBLE SIMPLY AS A WORKING PROTOTYPE.
+ * IT'S COMPLETELY UN-OPTIMIZED, IM-PROPERLY STRUCTURED, AND ACTUALLY QUITE TERRIBLE!
+ * 
+ * YOU'VE BEEN WARNED!!!!!
+ */
+
 namespace LGM
 {
     public partial class MainFrm : Form
     {
+        int objcnt = 0;
+
         public MainFrm()
         {
             InitializeComponent();
@@ -71,7 +80,7 @@ namespace LGM
                if the resource list is shown or not.*/
 
             rslistpnl.Visible = (btnrslist.Text == ">");
-            if (btnrslist.Text == "<") { btnrslist.Text = ">"; } else { btnrslist.Text = "<"; }
+            if (btnrslist.Text == "<") { btnrslist.Text = ">"; viewresourceListmi.Checked = false; } else { btnrslist.Text = "<"; viewresourceListmi.Checked = true; }
         }
 
         private void newmi_Click(object sender, EventArgs e)
@@ -128,6 +137,21 @@ namespace LGM
             if (btnrslist.Text == "<") { btnrslist.Text = ">"; } else { btnrslist.Text = "<"; }
         }
         #endregion
+
+        private void objectbtn_Click(object sender, EventArgs e)
+        {
+            if (!rswindows.Visible)
+            {
+                rswindows.Visible = true;
+            }
+
+            TabPage tbpg = new TabPage("Object " + objcnt.ToString());
+
+            //tbpg.Controls.Add(new Label());
+
+            rswindows.TabPages.Add(tbpg);
+            objcnt++;
+        }
 
         
     }

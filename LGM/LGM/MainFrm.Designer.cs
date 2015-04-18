@@ -60,23 +60,6 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.cutmi = new System.Windows.Forms.ToolStripMenuItem();
             this.copymi = new System.Windows.Forms.ToolStripMenuItem();
-            this.maintoolbar = new System.Windows.Forms.ToolStrip();
-            this.newbtn = new System.Windows.Forms.ToolStripButton();
-            this.openbtn = new System.Windows.Forms.ToolStripButton();
-            this.savebtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.testbtn = new System.Windows.Forms.ToolStripButton();
-            this.buildbtn = new System.Windows.Forms.ToolStripButton();
-            this.settingsbtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.spritebtn = new System.Windows.Forms.ToolStripButton();
-            this.objectbtn = new System.Windows.Forms.ToolStripButton();
-            this.bgbtn = new System.Windows.Forms.ToolStripButton();
-            this.sndbtn = new System.Windows.Forms.ToolStripButton();
-            this.scrptbtn = new System.Windows.Forms.ToolStripButton();
-            this.roombtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.helpbtn = new System.Windows.Forms.ToolStripButton();
             this.pastemi = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.selectallmi = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,6 +78,23 @@
             this.contentshlpmi = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutLGMmi = new System.Windows.Forms.ToolStripMenuItem();
+            this.maintoolbar = new System.Windows.Forms.ToolStrip();
+            this.newbtn = new System.Windows.Forms.ToolStripButton();
+            this.openbtn = new System.Windows.Forms.ToolStripButton();
+            this.savebtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.testbtn = new System.Windows.Forms.ToolStripButton();
+            this.buildbtn = new System.Windows.Forms.ToolStripButton();
+            this.settingsbtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.spritebtn = new System.Windows.Forms.ToolStripButton();
+            this.objectbtn = new System.Windows.Forms.ToolStripButton();
+            this.bgbtn = new System.Windows.Forms.ToolStripButton();
+            this.sndbtn = new System.Windows.Forms.ToolStripButton();
+            this.scrptbtn = new System.Windows.Forms.ToolStripButton();
+            this.roombtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.helpbtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -365,6 +365,135 @@
             this.copymi.Size = new System.Drawing.Size(225, 30);
             this.copymi.Text = "&Copy";
             // 
+            // pastemi
+            // 
+            this.pastemi.Name = "pastemi";
+            this.pastemi.Size = new System.Drawing.Size(225, 30);
+            this.pastemi.Text = "&Paste";
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(222, 6);
+            // 
+            // selectallmi
+            // 
+            this.selectallmi.Name = "selectallmi";
+            this.selectallmi.Size = new System.Drawing.Size(225, 30);
+            this.selectallmi.Text = "Select &All";
+            // 
+            // renamersmi
+            // 
+            this.renamersmi.Name = "renamersmi";
+            this.renamersmi.Size = new System.Drawing.Size(225, 30);
+            this.renamersmi.Text = "Re&name Resource";
+            // 
+            // deletersmi
+            // 
+            this.deletersmi.Name = "deletersmi";
+            this.deletersmi.Size = new System.Drawing.Size(225, 30);
+            this.deletersmi.Text = "&Delete Resource";
+            // 
+            // viewmi
+            // 
+            this.viewmi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewtoolbarmi,
+            this.viewstatusBarmi,
+            this.viewresourceListmi});
+            this.viewmi.Name = "viewmi";
+            this.viewmi.Size = new System.Drawing.Size(61, 29);
+            this.viewmi.Text = "&View";
+            // 
+            // viewtoolbarmi
+            // 
+            this.viewtoolbarmi.Checked = true;
+            this.viewtoolbarmi.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.viewtoolbarmi.Name = "viewtoolbarmi";
+            this.viewtoolbarmi.Size = new System.Drawing.Size(187, 30);
+            this.viewtoolbarmi.Text = "&Toolbar";
+            this.viewtoolbarmi.Click += new System.EventHandler(this.viewtoolbarmi_Click);
+            // 
+            // viewstatusBarmi
+            // 
+            this.viewstatusBarmi.Checked = true;
+            this.viewstatusBarmi.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.viewstatusBarmi.Name = "viewstatusBarmi";
+            this.viewstatusBarmi.Size = new System.Drawing.Size(187, 30);
+            this.viewstatusBarmi.Text = "&Status Bar";
+            // 
+            // viewresourceListmi
+            // 
+            this.viewresourceListmi.Checked = true;
+            this.viewresourceListmi.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.viewresourceListmi.Name = "viewresourceListmi";
+            this.viewresourceListmi.Size = new System.Drawing.Size(187, 30);
+            this.viewresourceListmi.Text = "&Resource List";
+            this.viewresourceListmi.Click += new System.EventHandler(this.viewresourceListmi_Click);
+            // 
+            // toolsmi
+            // 
+            this.toolsmi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsmi,
+            this.toolStripSeparator9,
+            this.advancedmi});
+            this.toolsmi.Name = "toolsmi";
+            this.toolsmi.Size = new System.Drawing.Size(67, 29);
+            this.toolsmi.Text = "&Tools";
+            // 
+            // settingsmi
+            // 
+            this.settingsmi.AutoSize = false;
+            this.settingsmi.Image = global::LGM.Properties.Resources.settings1;
+            this.settingsmi.Name = "settingsmi";
+            this.settingsmi.Size = new System.Drawing.Size(206, 30);
+            this.settingsmi.Text = "&Settings";
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(168, 6);
+            // 
+            // advancedmi
+            // 
+            this.advancedmi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editgcmi});
+            this.advancedmi.Name = "advancedmi";
+            this.advancedmi.Size = new System.Drawing.Size(171, 30);
+            this.advancedmi.Text = "&Advanced";
+            // 
+            // editgcmi
+            // 
+            this.editgcmi.Name = "editgcmi";
+            this.editgcmi.Size = new System.Drawing.Size(247, 30);
+            this.editgcmi.Text = "&Edit Generated Code";
+            // 
+            // helpmi
+            // 
+            this.helpmi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contentshlpmi,
+            this.toolStripSeparator10,
+            this.aboutLGMmi});
+            this.helpmi.Name = "helpmi";
+            this.helpmi.Size = new System.Drawing.Size(61, 29);
+            this.helpmi.Text = "&Help";
+            // 
+            // contentshlpmi
+            // 
+            this.contentshlpmi.Name = "contentshlpmi";
+            this.contentshlpmi.Size = new System.Drawing.Size(175, 30);
+            this.contentshlpmi.Text = "&Contents";
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(172, 6);
+            // 
+            // aboutLGMmi
+            // 
+            this.aboutLGMmi.Name = "aboutLGMmi";
+            this.aboutLGMmi.Size = new System.Drawing.Size(175, 30);
+            this.aboutLGMmi.Text = "&About LGM";
+            // 
             // maintoolbar
             // 
             this.maintoolbar.BackColor = System.Drawing.Color.White;
@@ -392,7 +521,7 @@
             this.maintoolbar.Name = "maintoolbar";
             this.maintoolbar.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.maintoolbar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.maintoolbar.Size = new System.Drawing.Size(344, 31);
+            this.maintoolbar.Size = new System.Drawing.Size(390, 31);
             this.maintoolbar.TabIndex = 1;
             // 
             // newbtn
@@ -487,6 +616,7 @@
             this.objectbtn.Name = "objectbtn";
             this.objectbtn.Size = new System.Drawing.Size(24, 24);
             this.objectbtn.Text = "Add an Object";
+            this.objectbtn.Click += new System.EventHandler(this.objectbtn_Click);
             // 
             // bgbtn
             // 
@@ -543,135 +673,6 @@
             this.helpbtn.Name = "helpbtn";
             this.helpbtn.Size = new System.Drawing.Size(24, 24);
             this.helpbtn.Text = "Help...";
-            // 
-            // pastemi
-            // 
-            this.pastemi.Name = "pastemi";
-            this.pastemi.Size = new System.Drawing.Size(225, 30);
-            this.pastemi.Text = "&Paste";
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(222, 6);
-            // 
-            // selectallmi
-            // 
-            this.selectallmi.Name = "selectallmi";
-            this.selectallmi.Size = new System.Drawing.Size(225, 30);
-            this.selectallmi.Text = "Select &All";
-            // 
-            // renamersmi
-            // 
-            this.renamersmi.Name = "renamersmi";
-            this.renamersmi.Size = new System.Drawing.Size(225, 30);
-            this.renamersmi.Text = "Re&name Resource";
-            // 
-            // deletersmi
-            // 
-            this.deletersmi.Name = "deletersmi";
-            this.deletersmi.Size = new System.Drawing.Size(225, 30);
-            this.deletersmi.Text = "&Delete Resource";
-            // 
-            // viewmi
-            // 
-            this.viewmi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewtoolbarmi,
-            this.viewstatusBarmi,
-            this.viewresourceListmi});
-            this.viewmi.Name = "viewmi";
-            this.viewmi.Size = new System.Drawing.Size(61, 29);
-            this.viewmi.Text = "&View";
-            // 
-            // viewtoolbarmi
-            // 
-            this.viewtoolbarmi.Checked = true;
-            this.viewtoolbarmi.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.viewtoolbarmi.Name = "viewtoolbarmi";
-            this.viewtoolbarmi.Size = new System.Drawing.Size(198, 30);
-            this.viewtoolbarmi.Text = "&Toolbar";
-            this.viewtoolbarmi.Click += new System.EventHandler(this.viewtoolbarmi_Click);
-            // 
-            // viewstatusBarmi
-            // 
-            this.viewstatusBarmi.Checked = true;
-            this.viewstatusBarmi.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.viewstatusBarmi.Name = "viewstatusBarmi";
-            this.viewstatusBarmi.Size = new System.Drawing.Size(198, 30);
-            this.viewstatusBarmi.Text = "&Status Bar";
-            // 
-            // viewresourceListmi
-            // 
-            this.viewresourceListmi.Checked = true;
-            this.viewresourceListmi.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.viewresourceListmi.Name = "viewresourceListmi";
-            this.viewresourceListmi.Size = new System.Drawing.Size(198, 30);
-            this.viewresourceListmi.Text = "&Resource List";
-            this.viewresourceListmi.Click += new System.EventHandler(this.viewresourceListmi_Click);
-            // 
-            // toolsmi
-            // 
-            this.toolsmi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingsmi,
-            this.toolStripSeparator9,
-            this.advancedmi});
-            this.toolsmi.Name = "toolsmi";
-            this.toolsmi.Size = new System.Drawing.Size(67, 29);
-            this.toolsmi.Text = "&Tools";
-            // 
-            // settingsmi
-            // 
-            this.settingsmi.AutoSize = false;
-            this.settingsmi.Image = global::LGM.Properties.Resources.settings1;
-            this.settingsmi.Name = "settingsmi";
-            this.settingsmi.Size = new System.Drawing.Size(206, 30);
-            this.settingsmi.Text = "&Settings";
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(203, 6);
-            // 
-            // advancedmi
-            // 
-            this.advancedmi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editgcmi});
-            this.advancedmi.Name = "advancedmi";
-            this.advancedmi.Size = new System.Drawing.Size(206, 30);
-            this.advancedmi.Text = "&Advanced";
-            // 
-            // editgcmi
-            // 
-            this.editgcmi.Name = "editgcmi";
-            this.editgcmi.Size = new System.Drawing.Size(247, 30);
-            this.editgcmi.Text = "&Edit Generated Code";
-            // 
-            // helpmi
-            // 
-            this.helpmi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.contentshlpmi,
-            this.toolStripSeparator10,
-            this.aboutLGMmi});
-            this.helpmi.Name = "helpmi";
-            this.helpmi.Size = new System.Drawing.Size(61, 29);
-            this.helpmi.Text = "&Help";
-            // 
-            // contentshlpmi
-            // 
-            this.contentshlpmi.Name = "contentshlpmi";
-            this.contentshlpmi.Size = new System.Drawing.Size(198, 30);
-            this.contentshlpmi.Text = "&Contents";
-            // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(195, 6);
-            // 
-            // aboutLGMmi
-            // 
-            this.aboutLGMmi.Name = "aboutLGMmi";
-            this.aboutLGMmi.Size = new System.Drawing.Size(198, 30);
-            this.aboutLGMmi.Text = "&About LGM";
             // 
             // MainFrm
             // 
