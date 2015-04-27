@@ -28,6 +28,35 @@ namespace LGM
             maintoolbar.Renderer = new MyToolStripSystemRenderer();
 
             CorrectDPI();
+            //rswindows.DrawMode = TabDrawMode.OwnerDrawFixed;
+            rswindows.DrawItem += rswindows_DrawItem;
+            rswindows.MouseDown += rswindows_MouseDown;
+        }
+
+        void rswindows_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            //This code will render a "x" mark at the end of the Tab caption. 
+            e.Graphics.DrawString("x", e.Font, Brushes.Black, e.Bounds.Right - 15, e.Bounds.Top + 4);
+            e.Graphics.DrawString(this.rswindows.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + 12, e.Bounds.Top + 4);
+            e.DrawFocusRectangle();
+        }
+
+        void rswindows_MouseDown(object sender, MouseEventArgs e)
+        {
+            for (int i = 0; i < rswindows.TabPages.Count; i++)
+            {
+                Rectangle r = rswindows.GetTabRect(i);
+                //Getting the position of the "x" mark.
+                Rectangle closeButton = new Rectangle(r.Right - 15, r.Top + 4, 9, 7);
+                if (closeButton.Contains(e.Location))
+                {
+                    rswindows.TabPages.RemoveAt(i);
+                    if (rswindows.Visible && rswindows.TabCount < 1)
+                    {
+                        rswindows.Visible = false;
+                    }
+                }
+            }
         }
 
         public class MyToolStripSystemRenderer : ToolStripSystemRenderer
@@ -52,7 +81,8 @@ namespace LGM
             {
                 dx = g.DpiX;
 
-                resourcelist.Width = DPI.CorrectDPIvalues(198, dx); //200, 572
+                //rslistpnl.Width = DPI.CorrectDPIvalues(198,dx);
+                //resourcelist.Width = DPI.CorrectDPIvalues(198, dx); //200, 572
 
                 foreach (ToolStripItem ti in maintoolbar.Items)
                 {
@@ -145,14 +175,22 @@ namespace LGM
                 rswindows.Visible = true;
             }
 
+            float dx = this.CreateGraphics().DpiX;
             TabPage tbpg = new TabPage("Object " + objcnt.ToString());
 
-            //tbpg.Controls.Add(new Label());
+            Label events = new Label();
+            events.Text = "Events";
+            events.Location = new Point(0,DPI.CorrectDPIvalues(5,dx));
+            tbpg.Controls.Add(events);
+            tbpg.BackColor = Color.White;
+
+            ListBox eventlb = new ListBox();
+            eventlb.Location = new Point(0,30);
+            eventlb.Size = new Size(DPI.CorrectDPIvalues(20,dx),DPI.CorrectDPIvalues(70,dx));
+            tbpg.Controls.Add(eventlb);
 
             rswindows.TabPages.Add(tbpg);
             objcnt++;
         }
-
-        
     }
 }
